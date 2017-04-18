@@ -1,21 +1,27 @@
-User {
-  username: string, null: false, unique: true
-  session_token: string
-  password_digest: string, null: false
-}
+## users
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+username        | string    | not null, indexed, unique
+email           | string    | not null, indexed, unique
+password_digest | string    | not null
+session_token   | string    | not null, indexed, unique
 
-List{
-  user_id: integer, null: false
-  title: string, null: false
-  due: string, null: false, default: "never"
-  completed: boolean, default: false
-  num_tasks: integer, default: 0
-  num_completed: integer, default: 0
-}
+##list
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+author_id       | integer   | not null, indexed
+title           | string    | not null, unique
+due             | date      | not null
+completed       | boolean   | not null, default: false
 
-Task {
-  list_id: integer
-  title: string, null: false
-  description: string
-  due: string, null: false, default: "never"
-}
+##Tasks
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+list_id         | integer   | not null, indexed
+title           | string    | not null, unique
+due             | date      | not null
+completed       | boolean   | not null, default: false
