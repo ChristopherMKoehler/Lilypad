@@ -61,3 +61,11 @@ Autocomplete SmartAdd of task properties
 
   -URL can be added but must start with "http://"
 Subtasks
+
+# Heroku
+
+https://lilypad-todo.herokuapp.com/#/
+
+# Trello
+
+https://trello.com/b/qbZbOOSz/lilypad
