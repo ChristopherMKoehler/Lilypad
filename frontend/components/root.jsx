@@ -7,7 +7,13 @@ import App from './app.jsx';
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     if(store.getState().session.currentUser){
-      replace('/');
+      replace('/home');
+    }
+  };
+
+  const _ensureLoggedIn = (nextState, replace) => {
+    if(!store.getState().session.currentUser){
+      replace('/login');
     }
   };
 
@@ -15,8 +21,10 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
+          <IndexRoute component={ SessionFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path="/login" component={ SessionFormContainer } onEnter={ _redirectIfLoggedIn } />
           <Route path="/signup" component={ SessionFormContainer }  onEnter={ _redirectIfLoggedIn }/>
+          <Route path="/home" onEnter={ _ensureLoggedIn }/>
         </Route>
       </Router>
     </Provider>

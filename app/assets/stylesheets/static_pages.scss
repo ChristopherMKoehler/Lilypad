@@ -4,14 +4,36 @@
 
 .header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  background: #56f442;
+  background: #2f8c4b;
   border-bottom: 2px solid black;
-  height: 100px;
+  height: 75px;
+  width: 100%;
 }
 
-.header h1 {
+.header .redirect-button {
+  font-family: 'Nothing You Could Do', cursive;
+  height: 34px;
+  text-align: center;
+  width: auto;
+  min-width: 100px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.header p {
+  font-family: 'Nothing You Could Do', cursive;
+  align-self: flex-end;
+}
+
+.header .name-logo {
+  display: flex;
+}
+
+
+h1 {
   font-family: 'Nothing You Could Do', cursive;
   margin: 10px;
 }
@@ -22,13 +44,64 @@
 }
 
 .auth-form {
+  display:  flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.auth-form .text {
+  display: flex;
+  width: 300px;
+  height: 25px;
+  margin: 5px;
+  align-items: center;
+}
+
+.form-container span {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: red;
+}
+.auth-form .text-error {
+  display: flex;
+  width: 300px;
+  height: 25px;
+  margin: 5px;
+  align-items: center;
+  background: rgba(255,0,0,0.3);
+}
+
+.form-container h1 {
+  border-bottom: 2px solid black;
+}
+
+.auth-form .text::placeholder {
+  font-size: 10px;
+  font-style: oblique;
+}
+
+.auth-form .submit {
+  margin: 10px;
+  width: 50px;
+  font-family: 'Nothing You Could Do', cursive;
+  height: 34px;
+  text-align: center;
+  width: auto;
+  min-width: 75px;
+  border-radius: 10px;
+  font-size: 20px;
+
+}
+
+.form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  margin-top: 40px;
 }
 
-.auth-form input {
-  width: 250px;
-  height: 25px;
+.alt-link {
+  font-family: sans-serif, italic;
 }

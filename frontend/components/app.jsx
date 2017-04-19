@@ -1,16 +1,14 @@
 import React from 'react';
 import GreetingContainer from './greetings/greeting_container';
+import HeaderContainer from './header/header_container';
 
-const App = ({ children }) => {
+const App = (props) => {
   return (
     <div>
-      <div className="header">
-        <h1>Lilypad</h1>
-      </div>
       <GreetingContainer />
-      { children }
+      { props.children }
     </div>
-  )
-}
+  );
+};
 
 export default App;

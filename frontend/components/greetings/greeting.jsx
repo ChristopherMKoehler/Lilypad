@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import SessionFormContainer from '../session/session_form_container';
 
 class Greeting extends React.Component {
@@ -10,11 +10,11 @@ class Greeting extends React.Component {
 
   handleLogOut(e) {
     e.preventDefault();
-    this.props.logOut();
+    this.props.logOut().then(() => this.props.router.push("/"));
   }
 
   render() {
-    if(this.props.currentUser){
+    if(this.props.currentUser) {
       return (
         <div>
           <h1 className="welcome">Welcome {this.props.currentUser.username}!</h1>
@@ -24,13 +24,11 @@ class Greeting extends React.Component {
     } else {
       return (
         <div>
-          <h1 className="welcome">Welcome to Lilypad!</h1>
-          <Link to='/signup'>Sign Up!</Link>
-          <Link to='/login'>Log In!</Link>
         </div>
       );
     }
   }
 }
 
-export default Greeting;
+// <h1 className="welcome">Welcome to Lilypad!</h1>
+export default withRouter(Greeting);

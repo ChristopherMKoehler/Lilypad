@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Splash from '../splash';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", email: ""};
+    this.state = { username: "", password: "", email: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
@@ -18,7 +19,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
-      .then(() => this.props.router.push('/'));
+      .then(() => this.props.router.push('/home'));
   }
 
   update(type) {
@@ -29,42 +30,75 @@ class SessionForm extends React.Component {
 
   render() {
     let emailFormInput = "";
-    let formHeader = "Log In!";
+    let formHeader = "Log In to Lilypad!";
     let alternatePath = "/signup";
+
+    let emailErrors = "";
+    let emailClass = "text";
+    if(this.props.errors.email) {
+      emailErrors = <span>{`Email ${this.props.errors.email}`}</span>;
+      emailClass = "text-error";
+    }
+
+    let usernameErrors = "";
+    let usernameClass = "text";
+    if(this.props.errors.username) {
+      usernameErrors = <span>{`Username ${this.props.errors.username}`}</span>;
+      usernameClass = "text-error";
+    }
+
+    let passwordErrors = "";
+    let passwordClass = "text";
+    if(this.props.errors.password) {
+      passwordErrors = <span>{`Password ${this.props.errors.password}`}</span>;
+      passwordClass = "text-error";
+    }
+
     if (this.props.formType === "signup") {
       emailFormInput =
-          <input type="text" value={ this.state.email }
-            onChange={ this.update("email") }
-            placeholder="Email"/>;
-      formHeader = "Sign Up!";
+      <div>
+        <input type="text"
+          className={ emailClass }
+          value={ this.state.email }
+          onChange={ this.update("email") }
+          placeholder="Email"/>
+      </div>;
+      formHeader = "Sign Up for Lilypad!";
       alternatePath = "/login";
     }
+
     return (
-      <div className="auth-form">
-        <h1>{ formHeader }</h1>
+      <Splash>
+        <div className="form-container">
+          <h1>{ formHeader }</h1>
 
-        { this.props.errors.base }
-        <form onSubmit={ this.handleSubmit }>
-          {emailFormInput}
+          <span>{ this.props.errors.base }</span>
+          <form onSubmit={ this.handleSubmit } className="auth-form">
+            { emailFormInput }
+            { emailErrors }
 
-          <input type="text"
-            value={ this.state.username }
-            onChange={ this.update("username") }
-            placeholder="Username"/>
+            <input className={ usernameClass }
+              type="text"
+              value={ this.state.username }
+              onChange={ this.update("username") }
+              placeholder="Username"/>
+            { usernameErrors }
+
+            <input className={ passwordClass }
+              type="password"
+              value={ this.state.password }
+              onChange={ this.update("password") }
+              placeholder="Password"/>
+            { passwordErrors }
 
 
-          <input type="password"
-            value={ this.state.password }
-            onChange={ this.update("password") }
-            placeholder="Password"/>
-
-
-          <input type="submit"></input>
-          <Link to={ alternatePath }>{ this.props.formType === "signup" ? "Log In!" : "Sign Up!" }</Link>
-        </form>
-      </div>
+            <input className="submit" type="submit"></input>
+          </form>
+        </div>
+    </Splash>
     );
   }
 }
+// <Link className="alt-link" to={ alternatePath }>{ this.props.formType === "signup" ? "Log In to Lilypad!" : "Sign Up for Lilypad!" }</Link>
 
 export default SessionForm;
