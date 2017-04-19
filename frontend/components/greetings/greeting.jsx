@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import SessionFormContainer from '../session/session_form_container';
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class Greeting extends React.Component {
   }
 
   handleLogOut(e) {
+    e.preventDefault();
     this.props.logOut();
   }
 
@@ -15,14 +17,14 @@ class Greeting extends React.Component {
     if(this.props.currentUser){
       return (
         <div>
-          <h1>Welcome {this.props.currentUser.username}!</h1>
-          <button onClick={ this.handleLogOut }/>
+          <h1 className="welcome">Welcome {this.props.currentUser.username}!</h1>
+          <button onClick={ this.handleLogOut }>Log Out!</button>
         </div>
       );
     } else {
       return (
         <div>
-          <h1>Welcome to Lilypad!</h1>
+          <h1 className="welcome">Welcome to Lilypad!</h1>
           <Link to='/signup'>Sign Up!</Link>
           <Link to='/login'>Log In!</Link>
         </div>

@@ -4,10 +4,15 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { logIn } from './actions/session_actions';
 
-document.addEventListener("DOMContentLoaded", () =>{
-  const root = document.getElementById("root");
-  const store = configureStore();
+document.addEventListener("DOMContentLoaded", () => {
+  let store;
+  if (window.currentUser) {
+    const preloadedState = { session: { currentUser: window.currentUser } };
+    store = configureStore(preloadedState);
+  } else {
+    store = configureStore();
+  }
   window.store = store;
-  window.logIn = logIn;
+  const root = document.getElementById("root");
   ReactDOM.render(<Root store={ store }/>, root);
 });

@@ -8,25 +8,31 @@ const receiveCurrentUser = (user) => ({
   user
 });
 
-const receiveErrors = (errors) => ({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
 
 export const logIn = user => dispatch => (
   SessionApiUtil.signIn(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
+    (user) => {
+      dispatch(receiveCurrentUser(user));
+      dispatch(receiveErrors({}));
+    },
     (error) => dispatch(receiveErrors(error.responseJSON))
   )
 );
 
-export const logOut = () => dispatch (
-  SessionApiUtil.signOut().then(() => dispatch(receiveCurrentUser({})))
+export const logOut = () => dispatch => (
+  SessionApiUtil.signOut().then(() => dispatch(receiveCurrentUser(null)))
 );
 
-export const signUp = () => dispatch (
+export const signUp = user => dispatch => (
   SessionApiUtil.signUp(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
+    (user) => {
+      dispatch(receiveCurrentUser(user));
+      dispatch(receiveErrors({}));
+    },
     (error) => dispatch(receiveErrors(error.responseJSON))
   )
 );
