@@ -8,10 +8,13 @@ class ListIndexItem extends React.Component{
     super(props);
     this.state = { showModal: false, showActionModal: false };
 
+
+
     this.toggleModal = this.toggleModal.bind(this);
     this.removeList = this.removeList.bind(this);
     this.toggleActionModal = this.toggleActionModal.bind(this);
   }
+
 
   toggleModal(e) {
     this.setState({ showModal: !this.state.showModal });
