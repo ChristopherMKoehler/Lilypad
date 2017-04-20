@@ -18,6 +18,7 @@ class HomeHeader extends React.Component {
           <h1>Lilypad</h1>
           <p>keep hopping</p>
         </div>
+
         <button className="redirect-button"
           onClick={ this.handleLogout }>Sign Out</button>
       </div>

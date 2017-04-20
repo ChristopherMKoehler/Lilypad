@@ -80,6 +80,7 @@ h1 {
   border-bottom: 2px solid black;
 }
 
+
 .auth-form .text::placeholder {
   font-size: 10px;
   font-style: oblique;
@@ -126,6 +127,100 @@ h1 {
 }
 
 .list-nav span:hover {
+  color: white;
+}
+
+.list-nav span:hover {
   cursor: pointer;
   user-select: none;
+}
+
+.list-nav .list-nav-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-nav .add-list-button {
+  height: 20px;
+  width: 20px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.home-content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 50px;
+  margin-left: -250px;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-list {
+  list-style-type: none;
+}
+
+.edit-delete {
+  font-family: 'Nothing You Could Do', cursive;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 12px;
+  width: 50px;
+  height: 22px;
+}
+
+.edit-delete:hover {
+  cursor: pointer;
+}
+
+.list-action-modal {
+  position: absolute;
+  display: flex;
+  background: white;
+  flex-direction: column;
+  width: 150px;
+  z-index: 999;
+  top: 0;
+}
+
+.list-action-option:hover {
+  background: #7fdfff;
+}
+
+// .action-modal-screen {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 999;
+//   background: rgba(0, 0, 0, 0);
+// }
+
+.list-list-el {
+  position: relative;
 }

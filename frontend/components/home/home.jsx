@@ -7,8 +7,10 @@ const home = (props) => {
   return (
     <div>
       <HomeHeaderContainer />
-      <GreetingContainer />
-      <Navbar />
+      <div className="home-content">
+        <Navbar />
+        <GreetingContainer />
+      </div>
     </div>
   );
 };

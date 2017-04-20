@@ -33,13 +33,13 @@ export const fetchLists = () => dispatch => (
     )
 );
 
-export const deleteList = id => dispatch => (
-  ListApiUtil.deleteList(id)
-    .then(
-      (list) => dispatch(removeList(list)),
-      (errors) => dispatch(receiveErrors(errors))
-    )
-);
+export const deleteList = id => dispatch => {
+  return ListApiUtil.deleteList(id)
+  .then(
+    (list) => dispatch(removeList(list)),
+    (errors) => dispatch(receiveErrors(errors))
+  );
+};
 
 
 export const updateList = list => dispatch => (
