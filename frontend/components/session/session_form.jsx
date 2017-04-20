@@ -28,30 +28,37 @@ class SessionForm extends React.Component {
     };
   }
 
+
   render() {
     let emailFormInput = "";
     let formHeader = "Log In to Lilypad!";
     let alternatePath = "/signup";
 
-    let emailErrors = "";
+
     let emailClass = "text";
-    if(this.props.errors.email) {
-      emailErrors = <span>{`Email ${this.props.errors.email}`}</span>;
-      emailClass = "text-error";
-    }
-
-    let usernameErrors = "";
     let usernameClass = "text";
-    if(this.props.errors.username) {
-      usernameErrors = <span>{`Username ${this.props.errors.username}`}</span>;
-      usernameClass = "text-error";
-    }
-
-    let passwordErrors = "";
     let passwordClass = "text";
-    if(this.props.errors.password) {
-      passwordErrors = <span>{`Password ${this.props.errors.password}`}</span>;
-      passwordClass = "text-error";
+
+    let emailErrors = "";
+    let usernameErrors = "";
+    let passwordErrors = "";
+
+    if(this.props.errors){
+      if(this.props.errors.email) {
+        emailErrors = <span>{`Email ${this.props.errors.email}`}</span>;
+        emailClass = "text-error";
+      }
+
+      if(this.props.errors.username) {
+        usernameErrors = <span>{`Username ${this.props.errors.username}`}</span>;
+        usernameClass = "text-error";
+      }
+
+
+      if(this.props.errors.password) {
+        passwordErrors = <span>{`Password ${this.props.errors.password}`}</span>;
+        passwordClass = "text-error";
+      }
     }
 
     if (this.props.formType === "signup") {

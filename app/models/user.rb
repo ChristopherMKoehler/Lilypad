@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
   attr_reader :password
+  has_many :lists,
+    class_name: 'List',
+    primary_key: :id,
+    foreign_key: :author_id
 
   validates :username, :email, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :username, uniqueness: true
-  
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

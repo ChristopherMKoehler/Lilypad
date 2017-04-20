@@ -23,6 +23,10 @@
   margin-right: 5px;
 }
 
+.header .redirect-button:hover {
+  cursor: pointer;
+}
+
 .header p {
   font-family: 'Nothing You Could Do', cursive;
   align-self: flex-end;
@@ -94,6 +98,10 @@ h1 {
 
 }
 
+.auth-form .submit:hover {
+  cursor: pointer;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -104,4 +112,20 @@ h1 {
 
 .alt-link {
   font-family: sans-serif, italic;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background: #2f8c4b;
+}
+
+.list-nav span, li {
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.list-nav span:hover {
+  cursor: pointer;
+  user-select: none;
 }

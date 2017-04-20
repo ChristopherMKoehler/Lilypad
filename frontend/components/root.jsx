@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SessionFormContainer from './session/session_form_container';
+import Home from './home/home';
 import App from './app.jsx';
 
 const Root = ({ store }) => {
@@ -24,7 +25,7 @@ const Root = ({ store }) => {
           <IndexRoute component={ SessionFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path="/login" component={ SessionFormContainer } onEnter={ _redirectIfLoggedIn } />
           <Route path="/signup" component={ SessionFormContainer }  onEnter={ _redirectIfLoggedIn }/>
-          <Route path="/home" onEnter={ _ensureLoggedIn }/>
+          <Route path="/home" onEnter={ _ensureLoggedIn } component={ Home }/>
         </Route>
       </Router>
     </Provider>
