@@ -32,7 +32,7 @@ class Api::ListsController < ApplicationController
     new_list_params[:author_id] = current_user.id
     @list = List.new(new_list_params)
 
-    if @list.save!
+    if @list.save
       render :show
     else
       render json: @list.errors, status: 422
@@ -53,11 +53,10 @@ class Api::ListsController < ApplicationController
   def update
     @list = current_user.lists.find(params[:id])
 
-    if @list
-      @list.update(list_params)
+    if @list.update(list_params)
       render :show
     else
-      render json: { base: ["List not found."] }, status: 404
+      render json: @list.errors, status: 422
     end
   end
 

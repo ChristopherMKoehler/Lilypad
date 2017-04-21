@@ -5,7 +5,7 @@ const _defaultLists = Object.freeze({
 
 });
 
-const listReducer = (state = {}, action) => {
+const listReducer = (state = { errors: {} }, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_LISTS:

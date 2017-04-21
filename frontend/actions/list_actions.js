@@ -20,16 +20,18 @@ const removeList = (list) => ({
   list
 });
 
-const receiveErrors = (errors) => ({
-  type: RECEIVE_ERRORS,
-  errors
-});
+export const receiveErrors = (errors) => {
+  return {
+    type: RECEIVE_ERRORS,
+    errors
+  };
+};
 
 export const fetchLists = () => dispatch => (
   ListApiUtil.fetchLists()
     .then(
       (lists) => dispatch(receiveLists(lists)),
-      (errors) => dispatch(receiveErrors(errors))
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
 );
 
@@ -37,7 +39,7 @@ export const deleteList = id => dispatch => {
   return ListApiUtil.deleteList(id)
   .then(
     (list) => dispatch(removeList(list)),
-    (errors) => dispatch(receiveErrors(errors))
+    (errors) => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
@@ -46,14 +48,14 @@ export const updateList = list => dispatch => (
   ListApiUtil.updateList(list)
     .then(
       (list) => dispatch(receiveList(list)),
-      (errors) => dispatch(receiveErrors(errors))
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
 );
 
-export const createList = list => dispatch => (
-  ListApiUtil.createList(list)
-    .then(
-      (list) => dispatch(receiveList(list)),
-      (errors) => dispatch(receiveErrors(errors))
-    )
-);
+export const createList = list => dispatch => {
+  return ListApiUtil.createList(list)
+  .then(
+    (list) => dispatch(receiveList(list)),
+    (errors) => dispatch(receiveErrors(errors.responseJSON))
+  );
+};

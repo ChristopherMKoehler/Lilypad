@@ -11,22 +11,32 @@ class ListForm extends React.Component {
 
   update(type) {
     return (e) => {
-      this.setState({[type]: e.target.value});
+      this.setState({[type]: e.target.value });
     };
   }
 
   handleSubmit(e) {
-    this.props.processForm(this.state).then(() => this.props.toggleModal());
+    this.props.processForm(this.state)
+      .then(() => {
+        this.props.toggleModal();
+        this.props.clearErrors();
+      });
   }
 
   render() {
     let title = this.props.formType === "edit" ? "Edit this list!" : "Add a list!";
-
+    let titleErrors = "";
+    if(this.props.errors.title) {
+      titleErrors = <p id="title-errors">{`Title ${this.props.errors.title}`}</p>;
+    }
     return (
       <div className="modal-screen" onClick={ this.props.toggleModal }>
         <div className="modal-content" onClick={ (e) => e.stopPropagation() }>
           <h1>{ title }</h1>
+
+          { titleErrors }
           <form onSubmit={ this.handleSubmit }>
+
             <input type="text"
               value={ this.state.title }
               placeholder="Title"
