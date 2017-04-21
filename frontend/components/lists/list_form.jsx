@@ -16,7 +16,6 @@ class ListForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
     this.props.processForm(this.state).then(() => this.props.toggleModal());
   }
 
@@ -25,7 +24,7 @@ class ListForm extends React.Component {
 
     return (
       <div className="modal-screen" onClick={ this.props.toggleModal }>
-        <div className="modal-content">
+        <div className="modal-content" onClick={ (e) => e.stopPropagation() }>
           <h1>{ title }</h1>
           <form onSubmit={ this.handleSubmit }>
             <input type="text"

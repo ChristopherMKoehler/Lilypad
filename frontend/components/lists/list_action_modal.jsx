@@ -5,18 +5,18 @@ class ListActionModal extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.offClickHandler = (e) => {
-      if(e.target.attr('class') !== '.list-action-modal'){
-        this.props.toggleActionModal();
-      }
-    };
-
-    $(':not(.list-action-modal)').click(this.offClickHandler);
-  }
-  componentWillUnmount() {
-    $(':not(.list-action-modal)').off("click", this.offClickHandler);
-  }
+  // componentWillMount() {
+  //   this.offClickHandler = (e) => {
+  //     if(e.target.attr('class') !== '.list-action-modal'){
+  //       this.props.toggleActionModal();
+  //     }
+  //   };
+  //
+  //   $(':not(.list-action-modal)').click(this.offClickHandler);
+  // }
+  // componentWillUnmount() {
+  //   $(':not(.list-action-modal)').off("click", this.offClickHandler);
+  // }
 
   render() {
     return (
