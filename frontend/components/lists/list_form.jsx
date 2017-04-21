@@ -15,12 +15,13 @@ class ListForm extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     this.props.processForm(this.state)
-      .then(() => {
-        this.props.toggleModal();
-        this.props.clearErrors();
-      });
+      .then(() => this.props.toggleModal());
   }
 
   render() {
