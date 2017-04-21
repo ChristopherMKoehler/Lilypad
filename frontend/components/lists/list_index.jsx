@@ -1,6 +1,7 @@
 import React from 'react';
 import ListIndexItemContainer from './list_index_item_container';
 import ListFormContainer from './list_form_container';
+import merge from 'lodash/merge';
 
 class ListIndex extends React.Component {
   constructor(props) {
@@ -23,7 +24,10 @@ class ListIndex extends React.Component {
   }
 
   render() {
-    let lists = Object.keys(this.props.lists).map((listId) => (
+    let lists = merge({}, this.props.lists);
+    delete lists.errors;
+
+    lists = Object.keys(lists).map((listId) => (
       <ListIndexItemContainer key={ listId } list={ this.props.lists[listId] }/>
     ));
 
@@ -31,7 +35,7 @@ class ListIndex extends React.Component {
       <div className="list-nav">
         <div className="list-nav-head">
           <span className="list-nav-title" onClick={ this.toggleShow }>Lists</span>
-          <button onClick={ this.toggleModal } className="add-list-button">+</button>
+          <i onClick={ this.toggleModal } id="plus-button" className="fa fa-plus-circle" aria-hidden="true"></i>
         </div>
 
         { this.state.showLists && <ul className="list-list">{ lists }</ul> }

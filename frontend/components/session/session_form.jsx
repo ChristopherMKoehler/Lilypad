@@ -74,12 +74,17 @@ class SessionForm extends React.Component {
       alternatePath = "/login";
     }
 
+    let base;
+    if(this.props.errors){
+      base = this.props.errors.base;
+    }
+
     return (
       <Splash>
         <div className="form-container">
           <h1>{ formHeader }</h1>
 
-          <span>{ this.props.errors.base }</span>
+          <span>{ base }</span>
           <form onSubmit={ this.handleSubmit } className="auth-form">
             { emailFormInput }
             { emailErrors }

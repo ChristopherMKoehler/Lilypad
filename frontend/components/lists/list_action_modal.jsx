@@ -1,22 +1,20 @@
 import React from 'react';
+import enhanceWithClickOutside from 'react-click-outside';
 
 class ListActionModal extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  // componentWillMount() {
-  //   this.offClickHandler = (e) => {
-  //     if(e.target.attr('class') !== '.list-action-modal'){
-  //       this.props.toggleActionModal();
-  //     }
-  //   };
-  //
-  //   $(':not(.list-action-modal)').click(this.offClickHandler);
-  // }
-  // componentWillUnmount() {
-  //   $(':not(.list-action-modal)').off("click", this.offClickHandler);
-  // }
+  handleClickOutside(e) {
+    let targetClass = e.target.getAttribute('class');
+    let targetId = parseInt(e.target.getAttribute('id'));
+
+    if(targetClass !== 'list-action-option' && targetId !== this.props.id){
+      this.props.toggleActionModal();
+    }
+  }
+
 
   render() {
     return (
@@ -28,4 +26,4 @@ class ListActionModal extends React.Component {
   }
 }
 
-export default ListActionModal;
+export default enhanceWithClickOutside(ListActionModal);

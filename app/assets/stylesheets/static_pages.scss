@@ -25,6 +25,7 @@
 
 .header .redirect-button:hover {
   cursor: pointer;
+  background: gray;
 }
 
 .header p {
@@ -101,6 +102,7 @@ h1 {
 
 .auth-form .submit:hover {
   cursor: pointer;
+  background: gray;
 }
 
 .form-container {
@@ -118,7 +120,7 @@ h1 {
 .navbar {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 14%;
   background: #2f8c4b;
 }
 
@@ -126,27 +128,40 @@ h1 {
   font-family: 'Nothing You Could Do', cursive;
 }
 
-.list-nav span:hover {
-  color: white;
-}
 
 .list-nav span:hover {
   cursor: pointer;
   user-select: none;
 }
 
+.list-nav-title:hover {
+  background: #42f47d;
+  color: white;
+}
+
 .list-nav .list-nav-head {
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: space-between;
+  width: 60px;
+  margin-left: 10px;
 }
 
 .list-nav .add-list-button {
-  height: 20px;
-  width: 20px;
-  font-size: 10px;
+  height: 14px;
+  width: 14px;
+  font-size: 12px;
+  margin: 8px;
+  border-radius: 10px;
+  padding: 0;
   text-align: center;
+  line-height: 10px;
 }
+
+// .list-nav .add-list-button:hover {
+//   color: white;
+// }
 
 .home-content {
   display: flex;
@@ -182,6 +197,7 @@ h1 {
 
 .list-list {
   list-style-type: none;
+  margin-top: 0;
 }
 
 .edit-delete {
@@ -204,23 +220,63 @@ h1 {
   flex-direction: column;
   width: 150px;
   z-index: 999;
-  top: 0;
+  top: 18px;
+  left: 50px;
+  border: 1px solid black;
 }
 
 .list-action-option:hover {
   background: #7fdfff;
 }
 
-// .action-modal-screen {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 999;
-//   background: rgba(0, 0, 0, 0);
-// }
+.welcome-logout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.welcome-logout h1 {
+  margin-right: 10px;
+  color: white;
+  font-size: 30px;
+}
 
 .list-list-el {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
+  border-bottom: 1px solid black;
+  margin: 5px;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.dropdown-button:hover {
+  cursor: pointer;
+}
+
+.list-title-container {
+  flex: 1;
+}
+
+.list-title-container:hover {
+  cursor: pointer;
+  background: #42f47d;
+  color: white;
+}
+
+i:hover {
+  cursor: pointer;
+  color: #42f46b;
 }

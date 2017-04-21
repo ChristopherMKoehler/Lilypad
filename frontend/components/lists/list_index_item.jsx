@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import ListFormContainer from './list_form_container';
 import ListActionModal from './list_action_modal';
 
@@ -9,12 +9,15 @@ class ListIndexItem extends React.Component{
     this.state = { showModal: false, showActionModal: false };
 
 
-
+    this.handleShow = this.handleShow.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.removeList = this.removeList.bind(this);
     this.toggleActionModal = this.toggleActionModal.bind(this);
   }
 
+  handleShow(e) {
+    this.props.router.push(`/lists/${this.props.list.id}`);
+  }
 
   toggleModal(e) {
     this.setState({ showModal: !this.state.showModal });
@@ -30,14 +33,19 @@ class ListIndexItem extends React.Component{
 
   render() {
     return (
-      <li className="list-list-el">
-        <Link to={ `/lists/${this.props.list.id}` }>{ this.props.list.title }</Link>
-        <button onClick={ this.toggleActionModal }>V</button>
-        { this.state.showActionModal && <ListActionModal toggleActionModal={ this.toggleActionModal } removeList={ this.removeList } toggleModal={ this.toggleModal }/>}
+      <li className="list-list-el" >
+        <div className="list-title-container" onClick={ this.handleShow }>
+          <span>{ this.props.list.title }</span>
+        </div>
+
+        <i id={ this.props.list.id } className="fa fa-cog" onClick={ this.toggleActionModal } aria-hidden="true"></i>
+
+        { this.state.showActionModal && <ListActionModal id={ this.props.list.id }toggleActionModal={ this.toggleActionModal } removeList={ this.removeList } toggleModal={ this.toggleModal }/>}
         { this.state.showModal && <ListFormContainer list={ this.props.list } formType="edit" toggleModal={ this.toggleModal }/>}
       </li>
     );
   }
 }
+// <Link to={ `/lists/${this.props.list.id}` }>{ this.props.list.title }</Link>
 
-export default ListIndexItem;
+export default withRouter(ListIndexItem);

@@ -9,7 +9,6 @@ const home = (props) => {
       <HomeHeaderContainer />
       <div className="home-content">
         <Navbar />
-        <GreetingContainer />
       </div>
     </div>
   );

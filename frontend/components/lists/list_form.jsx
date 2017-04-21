@@ -35,7 +35,7 @@ class ListForm extends React.Component {
             <label> Due:
               <input type="date"
                 value={ this.state.due }
-                onChange={ this.update("date") } />
+                onChange={ this.update("due") } />
             </label>
 
             <input type="submit"/>

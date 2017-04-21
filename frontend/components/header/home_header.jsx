@@ -12,6 +12,12 @@ class HomeHeader extends React.Component {
   }
 
   render(){
+    let username = "";
+
+    if(this.props.currentUser) {
+      username = this.props.currentUser.username;
+    }
+
     return (
       <div className="header">
         <div className="name-logo">
@@ -19,8 +25,11 @@ class HomeHeader extends React.Component {
           <p>keep hopping</p>
         </div>
 
-        <button className="redirect-button"
-          onClick={ this.handleLogout }>Sign Out</button>
+        <div className="welcome-logout">
+          <h1>{ `Welcome ${ username }!` }</h1>
+          <button className="redirect-button"
+            onClick={ this.handleLogout }>Sign Out</button>
+        </div>
       </div>
     );
   }
