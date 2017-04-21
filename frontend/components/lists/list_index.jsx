@@ -6,7 +6,7 @@ import merge from 'lodash/merge';
 class ListIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showLists: false, showModal: false };
+    this.state = { showModal: false };
     this.toggleShow = this.toggleShow.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
   }
@@ -38,7 +38,7 @@ class ListIndex extends React.Component {
           <i onClick={ this.toggleModal } id="plus-button" className="fa fa-plus-circle" aria-hidden="true"></i>
         </div>
 
-        { this.state.showLists && <ul className="list-list">{ lists }</ul> }
+        <ul className="list-list">{ lists }</ul>
         { this.state.showModal && <ListFormContainer formType="create" toggleModal={ this.toggleModal }/>}
       </div>
     );

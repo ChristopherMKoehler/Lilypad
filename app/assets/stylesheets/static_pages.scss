@@ -160,6 +160,8 @@ h1 {
 }
 
 .list-nav{
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background: #2f8c4b;
 }
@@ -285,4 +287,8 @@ i:hover {
 #title-errors {
   color: red;
   font-family: 'Nothing You Could Do', cursive;
+}
+
+.fa-events-icons-ready {
+  height: 100%;
 }

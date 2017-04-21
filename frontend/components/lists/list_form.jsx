@@ -27,8 +27,10 @@ class ListForm extends React.Component {
   render() {
     let title = this.props.formType === "edit" ? "Edit this list!" : "Add a list!";
     let titleErrors = "";
-    if(this.props.errors.title) {
-      titleErrors = <p id="title-errors">{`Title ${this.props.errors.title}`}</p>;
+    if(this.props.errors) {
+      if(this.props.errors.title){
+        titleErrors = <p id="title-errors">{`Title ${this.props.errors.title}`}</p>;
+      }
     }
     return (
       <div className="modal-screen" onClick={ this.props.toggleModal }>

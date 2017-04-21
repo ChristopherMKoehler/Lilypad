@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SessionFormContainer from './session/session_form_container';
 import Home from './home/home';
 import App from './app.jsx';
+import TasksIndex from './tasks/tasks_index';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -26,6 +27,7 @@ const Root = ({ store }) => {
           <Route path="/login" component={ SessionFormContainer } onEnter={ _redirectIfLoggedIn } />
           <Route path="/signup" component={ SessionFormContainer }  onEnter={ _redirectIfLoggedIn }/>
           <Route path="/home" onEnter={ _ensureLoggedIn } component={ Home }/>
+          <Route path="/lists/:id" onEnter={ _ensureLoggedIn } component={ TasksIndex }/>
         </Route>
       </Router>
     </Provider>

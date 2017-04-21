@@ -46,6 +46,6 @@ class ListIndexItem extends React.Component{
     );
   }
 }
-// <Link to={ `/lists/${this.props.list.id}` }>{ this.props.list.title }</Link>
+
 
 export default withRouter(ListIndexItem);

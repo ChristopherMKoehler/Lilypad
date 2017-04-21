@@ -5,10 +5,12 @@ export const RECEIVE_LIST = "RECEIVE_LIST";
 export const REMOVE_LIST = "REMOVE_LIST";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-const receiveLists = (lists) => ({
-  type: RECEIVE_LISTS,
-  lists
-});
+const receiveLists = (lists) => {
+  return {
+    type: RECEIVE_LISTS,
+    lists
+  };
+};
 
 const receiveList = (list) => ({
   type: RECEIVE_LIST,

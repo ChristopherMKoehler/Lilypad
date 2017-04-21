@@ -1,6 +1,6 @@
 class List < ActiveRecord::Base
   validates :title, :due, :author, presence: true
-  validates :title, uniqueness: true
+  validates_uniqueness_of :title, scope: :author_id
 
   belongs_to :author,
     class_name: 'User',

@@ -9,7 +9,7 @@ const listReducer = (state = { errors: {} }, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_LISTS:
-      return merge({}, state, action.lists);
+      return action.lists;
     case RECEIVE_LIST:
       return merge({}, state, { [action.list.id]: action.list });
     case REMOVE_LIST:
