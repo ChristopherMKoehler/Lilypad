@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
     this.state = { username: "", password: "", email: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.handleGuestLogIn = this.handleGuestLogIn.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -28,6 +29,11 @@ class SessionForm extends React.Component {
     };
   }
 
+  handleGuestLogIn(e) {
+    e.preventDefault();
+    this.props.processForm({ username: "Guest", password: "password" })
+      .then(() => this.props.router.push('/home'));
+  }
 
   render() {
     let emailFormInput = "";
@@ -61,6 +67,7 @@ class SessionForm extends React.Component {
       }
     }
 
+    let guestSignInButton = "";
     if (this.props.formType === "signup") {
       emailFormInput =
       <div>
@@ -72,6 +79,8 @@ class SessionForm extends React.Component {
       </div>;
       formHeader = "Sign Up for Lilypad!";
       alternatePath = "/login";
+    } else {
+      guestSignInButton = <button onClick={ this.handleGuestLogIn } className="submit">Guest Login</button>;
     }
 
     let base;
@@ -105,6 +114,7 @@ class SessionForm extends React.Component {
 
 
             <input className="submit" type="submit"></input>
+            { guestSignInButton }
           </form>
         </div>
     </Splash>
