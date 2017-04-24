@@ -7,7 +7,10 @@ class List < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :author_id
 
-  has_many :tasks
+  has_many :tasks,
+    class_name: 'Task',
+    primary_key: :id,
+    foreign_key: :list_id
 
   def self.find_lists_by_author(author_id)
     User.where("author_id = ?", author_id)

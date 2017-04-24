@@ -1,0 +1,63 @@
+import * as TaskApiUtil from '../util/task_api_util';
+
+export const RECEIVE_TASKS = "RECEIVE_TASKS";
+export const RECEIVE_TASK = "RECEIVE_TASK";
+export const REMOVE_TASK = "REMOVE_TASK";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+
+const receiveTasks = (tasks) => {
+  return {
+    type: RECEIVE_TASKS,
+    tasks
+  };
+};
+
+const receiveTask = (task) => ({
+  type: RECEIVE_TASK,
+  task
+});
+
+const removeTask = (task) => ({
+  type: REMOVE_TASK,
+  task
+});
+
+export const receiveErrors = (errors) => {
+  return {
+    type: RECEIVE_ERRORS,
+    errors
+  };
+};
+
+export const fetchTasks = () => dispatch => (
+  TaskApiUtil.fetchTasks()
+    .then(
+      (tasks) => dispatch(receiveTasks(tasks)),
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
+    )
+);
+
+export const deleteTask = id => dispatch => {
+  return TaskApiUtil.deleteTask(id)
+  .then(
+    (task) => dispatch(removeTask(task)),
+    (errors) => dispatch(receiveErrors(errors.responseJSON))
+  );
+};
+
+
+export const updateTask = task => dispatch => (
+  TaskApiUtil.updateTask(task)
+    .then(
+      (task) => dispatch(receiveTask(task)),
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
+    )
+);
+
+export const createTask = task => dispatch => {
+  return TaskApiUtil.createTask(task)
+  .then(
+    (task) => dispatch(receiveTask(task)),
+    (errors) => dispatch(receiveErrors(errors.responseJSON))
+  );
+};

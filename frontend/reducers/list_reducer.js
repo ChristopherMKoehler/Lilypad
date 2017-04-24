@@ -1,9 +1,6 @@
 import { RECEIVE_LISTS, RECEIVE_LIST, REMOVE_LIST, RECEIVE_ERRORS } from '../actions/list_actions';
 import merge from 'lodash/merge';
 
-const _defaultLists = Object.freeze({
-
-});
 
 const listReducer = (state = { errors: {} }, action) => {
   Object.freeze(state);
