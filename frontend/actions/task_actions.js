@@ -29,8 +29,16 @@ export const receiveErrors = (errors) => {
   };
 };
 
-export const fetchTasks = () => dispatch => (
-  TaskApiUtil.fetchTasks()
+export const fetchAllTasks = () => dispatch => (
+  TaskApiUtil.fetchAllTasks()
+    .then(
+      (tasks) => dispatch(receiveTasks(tasks)),
+      (errors) => dispatch(receiveErrors(errors.responseJSON))
+    )
+);
+
+export const fetchTasksByList = (listId) => dispatch => (
+  TaskApiUtil.fetchListTasks(listId)
     .then(
       (tasks) => dispatch(receiveTasks(tasks)),
       (errors) => dispatch(receiveErrors(errors.responseJSON))
