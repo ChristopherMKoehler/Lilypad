@@ -34,7 +34,7 @@ class ListIndex extends React.Component {
 
     return (
       <div className="list-nav">
-        <Link className="all-tasks-link" to="/home/lists/0">All Tasks</Link>
+        <Link className="all-tasks-link" to="/home/lists/all_tasks">All Tasks</Link>
         <div className="list-nav-head">
           <span className="list-nav-title" onClick={ this.toggleShow }>Lists</span>
           <i onClick={ this.toggleModal } id="plus-button" className="fa fa-plus-circle" aria-hidden="true"></i>

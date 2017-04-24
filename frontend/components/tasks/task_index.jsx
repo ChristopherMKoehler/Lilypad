@@ -9,7 +9,7 @@ class TaskIndex extends React.Component {
 
   componentWillReceiveProps(newProps) {
      if(newProps.params.id != this.props.params.id){
-       if(newProps.params.id === "0") {
+       if(newProps.params.id === "all_tasks") {
          this.props.fetchAllTasks();
        } else {
          this.props.fetchTasksByList(newProps.params.id);
@@ -18,7 +18,7 @@ class TaskIndex extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.params.id === "0") {
+    if(this.props.params.id === "all_tasks") {
       this.props.fetchAllTasks();
     } else {
       this.props.fetchTasksByList(this.props.params.id);

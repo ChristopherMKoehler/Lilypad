@@ -6,7 +6,7 @@ class TaskForm extends React.Component {
   constructor(props) {
     super(props);
     this.defaultState = { dateHidden: true, task: { list_id: this.props.params.id, title: "", completed: false, due: new Date() } };
-    this.state = this.defaultState;
+    this.state = merge({}, this.defaultState);
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,13 +22,13 @@ class TaskForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    let newState = merge({}, this.state);
+    let newState = merge({}, this.defaultState);
     newState.task.list_id = newProps.params.id;
     this.setState(newState);
   }
 
   componentDidMount() {
-    let newState = merge({}, this.state);
+    let newState = merge({}, this.defaultState);
     newState.task.list_id = this.props.params.id;
     this.setState(newState);
   }
