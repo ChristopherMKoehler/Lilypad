@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :author_id
 
+  has_many :tasks,
+    through: :lists,
+    source: :tasks
+
   validates :username, :email, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :username, uniqueness: true
