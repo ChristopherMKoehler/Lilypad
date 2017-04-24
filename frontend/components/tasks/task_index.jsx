@@ -13,12 +13,12 @@ class TaskIndex extends React.Component {
 
   render() {
     let tasks = Object.keys(this.props.tasks).map((taskId) => {
-      return <TaskIndexItem key={ taskId } task={ this.props.tasks[taskId] } />;
+      return <TaskIndexItem key={ taskId } updateTask={ this.props.updateTask } task={ this.props.tasks[taskId] } />;
     });
     return (
       <div>
         <TaskFormContainer />
-        <ul>
+        <ul className="task-list">
           { tasks }
         </ul>
       </div>

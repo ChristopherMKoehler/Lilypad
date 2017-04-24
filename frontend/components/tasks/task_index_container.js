@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchTasksByList } from '../../actions/task_actions';
+import { fetchTasksByList, updateTask } from '../../actions/task_actions';
 import TaskIndex from './task_index';
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTasksByList: (listId) => dispatch(fetchTasksByList(listId))
+    fetchTasksByList: (listId) => dispatch(fetchTasksByList(listId)),
+    updateTask: (task) => dispatch(updateTask(task))
   };
 };
 

@@ -26,8 +26,9 @@ const Root = ({ store }) => {
           <IndexRoute component={ SessionFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path="/login" component={ SessionFormContainer } onEnter={ _redirectIfLoggedIn } />
           <Route path="/signup" component={ SessionFormContainer }  onEnter={ _redirectIfLoggedIn }/>
-          <Route path="/home" onEnter={ _ensureLoggedIn } component={ Home }/>
-          <Route path="/lists/:id" onEnter={ _ensureLoggedIn } component={ TaskIndexContainer }/>
+          <Route path="/home" onEnter={ _ensureLoggedIn } component={ Home }>
+            <Route path="lists/:id" onEnter={ _ensureLoggedIn } component={ TaskIndexContainer }/>
+          </Route>
         </Route>
       </Router>
     </Provider>

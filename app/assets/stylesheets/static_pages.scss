@@ -295,3 +295,20 @@ i:hover {
 .fa-events-icons-ready {
   height: 100%;
 }
+
+.new-task-form form {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 400px;
+  align-items: center;
+}
+
+.new-task-form .task-title-input {
+  width: 200px;
+  height: 20px;
+}
+
+.new-task-form .task-date-input {
+  align-self: flex-end; 
+}

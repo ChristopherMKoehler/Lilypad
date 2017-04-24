@@ -16,7 +16,7 @@ class ListIndexItem extends React.Component{
   }
 
   handleShow(e) {
-    this.props.router.push(`/lists/${this.props.list.id}`);
+    this.props.router.push(`/home/lists/${this.props.list.id}`);
   }
 
   toggleModal(e) {

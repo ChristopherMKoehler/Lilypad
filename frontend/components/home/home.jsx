@@ -8,6 +8,7 @@ const home = (props) => {
       <HomeHeaderContainer />
       <div className="home-content">
         <Navbar />
+        { props.children }
       </div>
     </div>
   );
