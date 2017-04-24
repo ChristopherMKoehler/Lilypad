@@ -21,6 +21,18 @@ class TaskForm extends React.Component {
     };
   }
 
+  componentWillReceiveProps(newProps) {
+    let newState = merge({}, this.state);
+    newState.task.list_id = newProps.params.id;
+    this.setState(newState);
+  }
+
+  componentDidMount() {
+    let newState = merge({}, this.state);
+    newState.task.list_id = this.props.params.id;
+    this.setState(newState);
+  }
+
   componentWillUnmount() {
     this.props.clearErrors();
   }

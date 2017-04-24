@@ -40,7 +40,7 @@ class ListIndexItem extends React.Component{
 
         <i id={ this.props.list.id } className="fa fa-cog" onClick={ this.toggleActionModal } aria-hidden="true"></i>
 
-        { this.state.showActionModal && <ListActionModal id={ this.props.list.id }toggleActionModal={ this.toggleActionModal } removeList={ this.removeList } toggleModal={ this.toggleModal }/>}
+        { this.state.showActionModal && <ListActionModal id={ this.props.list.id } toggleActionModal={ this.toggleActionModal } removeList={ this.removeList } toggleModal={ this.toggleModal }/>}
         { this.state.showModal && <ListFormContainer list={ this.props.list } formType="edit" toggleModal={ this.toggleModal }/>}
       </li>
     );
