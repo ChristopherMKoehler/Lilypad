@@ -10,7 +10,10 @@ const TaskIndexItem = (props) => {
 
   return (
     <li>
-      <input type="checkbox" checked={ props.task.completed } onChange={ toggleCompleted }/>
+      <input type="checkbox"
+        checked={ props.task.completed }
+        className='task-checkbox'
+        onChange={ toggleCompleted }/>
       { props.task.title }
     </li>
   );

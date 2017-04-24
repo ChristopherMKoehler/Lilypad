@@ -2,6 +2,7 @@ import React from 'react';
 import ListIndexItemContainer from './list_index_item_container';
 import ListFormContainer from './list_form_container';
 import merge from 'lodash/merge';
+import { Link } from 'react-router';
 
 class ListIndex extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class ListIndex extends React.Component {
 
     return (
       <div className="list-nav">
+        <Link className="all-tasks-link" to="/home/lists/0">All Tasks</Link>
         <div className="list-nav-head">
           <span className="list-nav-title" onClick={ this.toggleShow }>Lists</span>
           <i onClick={ this.toggleModal } id="plus-button" className="fa fa-plus-circle" aria-hidden="true"></i>

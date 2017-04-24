@@ -129,15 +129,6 @@ h1 {
 }
 
 
-.list-nav span:hover {
-  cursor: pointer;
-  user-select: none;
-}
-
-.list-nav-title:hover {
-  background: #42f47d;
-  color: white;
-}
 
 .list-nav .list-nav-head {
   display: flex;
@@ -171,7 +162,10 @@ h1 {
 
 .home-content {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  width: 45%;
+  height: 100%;
+  min-height: 1000px;
 }
 
 .modal-screen {
@@ -310,5 +304,41 @@ i:hover {
 }
 
 .new-task-form .task-date-input {
-  align-self: flex-end; 
+  align-self: flex-end;
+}
+
+.task-list {
+  list-style: none;
+  width: 100%;
+}
+
+.task-list li {
+  padding: 5px;
+  word-wrap: break-word;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.task-index {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.task-checkbox {
+  margin-right: 10px;
+}
+
+.all-tasks-link {
+  font-family: 'Nothing You Could Do', cursive;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid black;
+  padding: 4px;
+  margin: 10px;
+}
+
+.all-tasks-link:hover {
+  background: #42f47d;
+  color: white;
 }

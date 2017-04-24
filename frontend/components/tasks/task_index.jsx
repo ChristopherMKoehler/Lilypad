@@ -7,8 +7,22 @@ class TaskIndex extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps(newProps) {
+     if(newProps.params.id != this.props.params.id){
+       if(newProps.params.id === "0") {
+         this.props.fetchAllTasks();
+       } else {
+         this.props.fetchTasksByList(newProps.params.id);
+       }
+    }
+  }
+
   componentDidMount() {
-    this.props.fetchTasksByList(this.props.params.id);
+    if(this.props.params.id === "0") {
+      this.props.fetchAllTasks();
+    } else {
+      this.props.fetchTasksByList(this.props.params.id);
+    }
   }
 
   render() {
@@ -16,7 +30,7 @@ class TaskIndex extends React.Component {
       return <TaskIndexItem key={ taskId } updateTask={ this.props.updateTask } task={ this.props.tasks[taskId] } />;
     });
     return (
-      <div>
+      <div className="task-index">
         <TaskFormContainer />
         <ul className="task-list">
           { tasks }

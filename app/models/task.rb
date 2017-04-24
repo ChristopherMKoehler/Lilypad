@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  validates :list, :title, :due, presence: true
+  validates :list_id, :title, :due, presence: true
   validates_uniqueness_of :title, scope: :list_id
 
   belongs_to :list,
