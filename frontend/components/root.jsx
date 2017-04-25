@@ -5,6 +5,7 @@ import SessionFormContainer from './session/session_form_container';
 import Home from './home/home';
 import App from './app.jsx';
 import TaskIndexContainer from './tasks/task_index_container';
+import TaskShowContainer from './tasks/task_show_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -27,7 +28,9 @@ const Root = ({ store }) => {
           <Route path="/login" component={ SessionFormContainer } onEnter={ _redirectIfLoggedIn } />
           <Route path="/signup" component={ SessionFormContainer }  onEnter={ _redirectIfLoggedIn }/>
           <Route path="/home" onEnter={ _ensureLoggedIn } component={ Home }>
-            <Route path="lists/:id" onEnter={ _ensureLoggedIn } component={ TaskIndexContainer }/>
+            <Route path="lists/:id" onEnter={ _ensureLoggedIn } component={ TaskIndexContainer }>
+              <Route path="tasks/:taskId" onEnter={ _ensureLoggedIn } component={ TaskShowContainer }/>
+            </Route>
           </Route>
         </Route>
       </Router>

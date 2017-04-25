@@ -32,7 +32,9 @@ class Api::TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    new_task_params = task_params
+    new_task_params[:author_id] = current_user.id
+    @task = Task.new(new_task_params)
 
     if @task.save
       render :show

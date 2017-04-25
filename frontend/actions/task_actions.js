@@ -45,6 +45,14 @@ export const fetchTasksByList = (listId) => dispatch => (
     )
 );
 
+export const fetchTask = id => dispatch => {
+  return TaskApiUtil.fetchTask(id)
+  .then(
+    (task) => dispatch(receiveTask(task)),
+    (errors) => dispatch(receiveErrors(errors.responseJSON))
+  );
+};
+
 export const deleteTask = id => dispatch => {
   return TaskApiUtil.deleteTask(id)
   .then(

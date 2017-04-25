@@ -7,6 +7,8 @@ class Task < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :list_id
 
-  has_one :author,
-    through: :list
+  belongs_to :author,
+    class_name: 'User',
+    primary_key: :id,
+    foreign_key: :author_id
 end
