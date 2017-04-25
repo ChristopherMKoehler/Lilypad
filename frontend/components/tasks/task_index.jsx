@@ -26,9 +26,12 @@ class TaskIndex extends React.Component {
   }
 
   render() {
-    let tasks = Object.keys(this.props.tasks).map((taskId) => {
+    let tasks = Object.keys(this.props.tasks).filter((taskId) => (
+      taskId !== "errors"
+    )).map((taskId) => {
       return <TaskIndexItem key={ taskId } updateTask={ this.props.updateTask } task={ this.props.tasks[taskId] } />;
     });
+
     return (
       <div className="tasks-body">
         <div className="task-index">

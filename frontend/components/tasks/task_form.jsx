@@ -73,7 +73,7 @@ class TaskForm extends React.Component {
         <label> Due:
           <input type="date"
             className="task-date-input"
-            value={ this.state.due }
+            value={ this.state.task.due }
             onChange={ this.update("due") } />
         </label>
       );
@@ -85,7 +85,7 @@ class TaskForm extends React.Component {
 
             <input type="text"
               className="task-title-input"
-              value={ this.state.title }
+              value={ this.state.task.title }
               placeholder="New Task"
               onClick={ this.toggleDateHidden }
               onChange={ this.update("title") }/>
