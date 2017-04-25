@@ -62,13 +62,13 @@ export const deleteTask = id => dispatch => {
 };
 
 
-export const updateTask = task => dispatch => (
-  TaskApiUtil.updateTask(task)
+export const updateTask = task => dispatch => {
+  return TaskApiUtil.updateTask(task)
     .then(
       (task) => dispatch(receiveTask(task)),
       (errors) => dispatch(receiveErrors(errors.responseJSON))
-    )
-);
+    );
+};
 
 export const createTask = task => dispatch => {
   return TaskApiUtil.createTask(task)

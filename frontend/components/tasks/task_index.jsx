@@ -30,11 +30,14 @@ class TaskIndex extends React.Component {
       return <TaskIndexItem key={ taskId } updateTask={ this.props.updateTask } task={ this.props.tasks[taskId] } />;
     });
     return (
-      <div className="task-index">
-        <TaskFormContainer />
-        <ul className="task-list">
-          { tasks }
-        </ul>
+      <div className="tasks-body">
+        <div className="task-index">
+          <TaskFormContainer />
+          <ul className="task-list">
+            { tasks }
+          </ul>
+        </div>
+        { this.props.children }
       </div>
     );
   }

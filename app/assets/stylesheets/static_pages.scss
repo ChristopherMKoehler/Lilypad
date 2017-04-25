@@ -12,6 +12,15 @@
   width: 100%;
 }
 
+p {
+  font-family: 'Nothing You Could Do', cursive;
+  margin: 10px 0 10px 0;
+}
+
+label {
+  font-family: 'Nothing You Could Do', cursive;
+}
+
 .header .redirect-button {
   font-family: 'Nothing You Could Do', cursive;
   height: 34px;
@@ -163,7 +172,6 @@ h1 {
 .home-content {
   display: flex;
   justify-content: space-between;
-  width: 45%;
   height: 100%;
   min-height: 1000px;
 }
@@ -299,12 +307,17 @@ i:hover {
 }
 
 .new-task-form .task-title-input {
-  width: 200px;
-  height: 20px;
+  width: 100%;
+  height: 30px;
+  font-size: large;
+  margin-bottom: 10px;
+  font-family: 'Nothing You Could Do', cursive;
 }
 
 .new-task-form .task-date-input {
   align-self: flex-end;
+  margin-bottom: 10px;
+  font-family: 'Nothing You Could Do', cursive;
 }
 
 .task-list {
@@ -319,11 +332,16 @@ i:hover {
   border-bottom: 1px solid black;
 }
 
+.task-list:hover {
+  cursor: pointer;
+}
+
 .task-index {
   display: flex;
   flex-direction: column;
   width: 500px;
-  margin-left: 300px;
+  justify-content: flex-start;
+  margin-left: 100px;
   margin-top: 10px;
 }
 
@@ -343,4 +361,75 @@ i:hover {
 .all-tasks-link:hover {
   background: #42f47d;
   color: white;
+}
+
+.task-show {
+  display: flex;
+  margin-top: 50px;
+  margin-right: 300px;
+  flex-direction: column;
+  height: 200px;
+  width: 500px;
+  margin-left: 150px;
+  padding: 10px;
+  border: 1px solid;
+}
+
+.tasks-body {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.task-title-display {
+  width: 500px;
+  height: 25px;
+  text-align: center;
+  border: none;
+  font-size: larger;
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.task-title-display:hover {
+  cursor: pointer;
+}
+
+.task-button {
+  width: 20%;
+  align-self: center;
+}
+
+.list-select {
+  font-family: 'Nothing You Could Do', cursive;
+  margin-bottom: 10px;
+  font-size: large;
+  height: 40px;
+}
+
+.task-form {
+  display: flex;
+  align-items: flex-end;
+}
+
+.list-option {
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.submit, .task-button {
+  font-family: 'Nothing You Could Do', cursive;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 40%;
+}
+
+.submit:hover {
+  cursor: pointer;
+  background: gray
+}
+
+
+.task-button:hover {
+  cursor: pointer;
+  background: gray
 }

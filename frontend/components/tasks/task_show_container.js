@@ -3,6 +3,12 @@ import { updateTask, deleteTask, fetchTask } from '../../actions/task_actions';
 import { fetchLists } from '../../actions/list_actions';
 import TaskShow from './task_show';
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    task: state.tasks[ownProps.params.taskId],
+    lists: state.lists
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -14,6 +20,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(TaskShow);

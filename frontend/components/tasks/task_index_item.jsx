@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import { withRouter } from 'react-router';
 
 const TaskIndexItem = (props) => {
   const toggleCompleted = (e) => {
@@ -8,8 +9,12 @@ const TaskIndexItem = (props) => {
     props.updateTask(updatedTask);
   };
 
+  const redirectToShow = (e) => {
+    props.router.push(`home/lists/${props.params.id}/tasks/${props.task.id}`);
+  };
+  
   return (
-    <li>
+    <li onClick={ redirectToShow }>
       <input type="checkbox"
         checked={ props.task.completed }
         className='task-checkbox'
@@ -19,4 +24,4 @@ const TaskIndexItem = (props) => {
   );
 };
 
-export default TaskIndexItem;
+export default withRouter(TaskIndexItem);
