@@ -14,6 +14,12 @@ class TaskShow extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  componentDidMount() {
+    if(!this.props.task) {
+      this.props.fetchTask(this.props.params.taskId);
+    }
+  }
+
   componentWillReceiveProps(newProps) {
     if(this.props.task != newProps.task) {
       let newState = merge({}, this.state);
@@ -55,8 +61,12 @@ class TaskShow extends React.Component {
     let newState = merge({}, this.state);
     newState.task.list_id = parseInt(e.target.value);
     this.setState(newState);
-    this.props.updateTask(newState.task);
-    this.props.router.push(`home/lists/${this.props.params.id}`);
+    this.props.updateTask(newState.task).then(
+      () => {
+        this.props.removeTask(this.props.task);
+        this.props.router.push(`home/lists/${this.props.params.id}`);
+      }
+    );
   }
 
   render() {
@@ -73,13 +83,13 @@ class TaskShow extends React.Component {
         { this.props.lists[listId].title }</option>
     ));
 
-    let formattedDate = "";
+    if(!this.props.task) {
+      return <div></div>;
+    }
 
+    let formattedDate = "";
     if(this.state.task.due){
       let taskDate = new Date(this.state.task.due);
-      let month = taskDate.getMonth();
-      let day = taskDate.getDay();
-      let year = taskDate.getYear();
       formattedDate = <p>{ taskDate.toString() }</p>;
     }
 

@@ -17,7 +17,7 @@ const receiveTask = (task) => ({
   task
 });
 
-const removeTask = (task) => ({
+export const removeTask = (task) => ({
   type: REMOVE_TASK,
   task
 });

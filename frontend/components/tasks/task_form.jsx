@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import merge from 'lodash/merge';
+import enhanceWithClickOutside from 'react-click-outside';
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -47,9 +48,15 @@ class TaskForm extends React.Component {
   }
 
   toggleDateHidden (e) {
-    let newState = merge({}, this.state);
-    newState.dateHidden = !newState.dateHidden;
-    this.setState(newState);
+    if(this.state.dateHidden) {
+      let newState = merge({}, this.state);
+      newState.dateHidden = !newState.dateHidden;
+      this.setState(newState);
+    }
+  }
+
+  handleClickOutside() {
+    this.setState(this.defaultState);
   }
 
   render() {
@@ -92,4 +99,4 @@ class TaskForm extends React.Component {
   }
 }
 
-export default withRouter(TaskForm);
+export default withRouter(enhanceWithClickOutside(TaskForm));

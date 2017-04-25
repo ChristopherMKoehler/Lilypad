@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateTask, deleteTask, fetchTask } from '../../actions/task_actions';
+import { updateTask, deleteTask, fetchTask, removeTask } from '../../actions/task_actions';
 import { fetchLists } from '../../actions/list_actions';
 import TaskShow from './task_show';
 
@@ -15,7 +15,8 @@ const mapDispatchToProps = (dispatch) => {
     updateTask: task => dispatch(updateTask(task)),
     deleteTask: id => dispatch(deleteTask(id)),
     fetchLists: () => dispatch(fetchLists()),
-    fetchTask: id => dispatch(fetchTask(id))
+    fetchTask: id => dispatch(fetchTask(id)),
+    removeTask: id => dispatch(removeTask(id))
   };
 };
 
