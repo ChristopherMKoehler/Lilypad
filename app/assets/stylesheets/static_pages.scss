@@ -130,6 +130,7 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 300px;
   background: #2f8c4b;
 }
 
@@ -420,7 +421,7 @@ i:hover {
   text-align: center;
   border-radius: 10px;
   font-size: 16px;
-  width: 40%;
+  min-width: 40%;
 }
 
 .submit:hover {
