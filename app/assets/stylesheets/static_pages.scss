@@ -10,7 +10,7 @@
   border-bottom: 2px solid black;
   height: 75px;
   width: 100%;
-  min-width: 1519px;
+  min-width: 1230px;
   max-width: 100%;
 
 }
@@ -327,13 +327,11 @@ i:hover {
 
 .task-list {
   list-style: none;
-  width: 100%;
 }
 
 .task-list li {
   padding: 5px;
   word-wrap: break-word;
-  width: 100%;
   border-bottom: 1px solid black;
 }
 
@@ -344,10 +342,9 @@ i:hover {
 .task-index {
   display: flex;
   flex-direction: column;
-  min-width: 500px;
   justify-content: flex-start;
-  margin-left: 100px;
   margin-top: 10px;
+  flex: 0.7;
 }
 
 .task-checkbox {
@@ -371,11 +368,9 @@ i:hover {
 .task-show {
   display: flex;
   margin-top: 50px;
-  margin-right: 300px;
   flex-direction: column;
   height: 300px;
   width: 500px;
-  margin-left: 150px;
   padding: 10px;
   border: 1px solid;
   animation-name: slidein;
@@ -395,8 +390,8 @@ i:hover {
 .tasks-body {
   display: flex;
   width: 100%;
-  justify-content: space-between;
-  min-width: 1280px
+  justify-content: space-around;
+  min-width: 900px
 }
 
 .task-title-display {

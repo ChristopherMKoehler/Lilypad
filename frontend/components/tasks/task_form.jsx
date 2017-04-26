@@ -57,7 +57,11 @@ class TaskForm extends React.Component {
       newState.task.list_id = 0;
       this.setState(newState);
     }
-    this.props.createTask(this.state.task).then(this.setState(this.defaultState));
+    this.props.createTask(this.state.task).then(
+      () => {
+        this.setState(this.defaultState);
+        this.props.clearErrors();
+      });
   }
 
   toggleDateHidden (e) {
@@ -68,9 +72,14 @@ class TaskForm extends React.Component {
     }
   }
 
-  handleClickOutside() {
-    this.setState(this.defaultState);
+  handleClickOutside(e) {
+    e.preventDefault();
+    let newState = merge({}, this.state);
     this.props.clearErrors();
+    newState.dateHidden = true;
+    this.setState(newState);
+
+
   }
 
   render() {
