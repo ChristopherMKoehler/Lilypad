@@ -16,12 +16,12 @@
 }
 
 p {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
   margin: 10px 0 10px 0;
 }
 
 label {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
 }
 
 .header .redirect-button {
@@ -45,13 +45,17 @@ label {
   align-self: flex-end;
 }
 
+.header h1 {
+  font-family: 'Nothing You Could Do', cursive;
+}
+
 .header .name-logo {
   display: flex;
 }
 
 
 h1 {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
   margin: 10px;
 }
 
@@ -90,6 +94,7 @@ h1 {
 }
 
 .form-container h1 {
+  font-family: 'Nothing You Could Do', cursive;
   border-bottom: 2px solid black;
 }
 
@@ -138,7 +143,7 @@ h1 {
 }
 
 .list-nav span, li {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
 }
 
 
@@ -214,7 +219,7 @@ h1 {
 }
 
 .edit-delete {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
   text-align: center;
   border-radius: 10px;
   font-size: 12px;
@@ -296,7 +301,7 @@ i:hover {
 
 #title-errors {
   color: red;
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
 }
 
 .fa-events-icons-ready {
@@ -316,13 +321,13 @@ i:hover {
   height: 30px;
   font-size: large;
   margin-bottom: 10px;
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
 }
 
 .new-task-form .task-date-input {
   align-self: flex-end;
   margin-bottom: 10px;
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
 }
 
 .task-list {
@@ -352,7 +357,7 @@ i:hover {
 }
 
 .all-tasks-link {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
   text-decoration: none;
   color: black;
   border-bottom: 1px solid black;
@@ -400,7 +405,7 @@ i:hover {
   text-align: center;
   border: none;
   font-size: larger;
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
 }
 
 .task-title-display:hover {
@@ -413,7 +418,7 @@ i:hover {
 }
 
 .list-select {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
   margin-bottom: 10px;
   font-size: large;
   height: 40px;
@@ -425,7 +430,7 @@ i:hover {
 }
 
 .list-option {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
 }
 
 .submit, .task-button {
