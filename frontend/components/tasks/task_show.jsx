@@ -94,7 +94,7 @@ class TaskShow extends React.Component {
       let taskDate = new Date(this.state.task.due);
       formattedDate = <p>{ taskDate.toString() }</p>;
     }
-
+    
     return (
       <div className="task-show">
         <form className="task-form" onSubmit={ this.handleSubmit }>

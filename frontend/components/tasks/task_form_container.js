@@ -4,7 +4,7 @@ import TaskForm from './task_form';
 
 const mapStateToProps = (state) => {
   return {
-    errors: state.lists.errors,
+    errors: state.tasks.errors,
     dateHidden: true
   };
 };

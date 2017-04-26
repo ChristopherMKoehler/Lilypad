@@ -10,7 +10,9 @@
   border-bottom: 2px solid black;
   height: 75px;
   width: 100%;
-  min-width: 1889px;
+  min-width: 1600px;
+  max-width: 100%;
+
 }
 
 p {
@@ -176,6 +178,7 @@ h1 {
   justify-content: space-between;
   height: 100%;
   min-height: 1000px;
+  max-width: 100%;
 }
 
 .modal-screen {
@@ -446,4 +449,23 @@ i:hover {
 .task-button:hover {
   cursor: pointer;
   background: gray
+}
+
+.list-show-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.count-holder {
+  display: flex;
+  background-color: #aaa;
+  padding: 5px;
+  border-radius: 15%;
+  justify-content: space-around;
+  margin-right: 5px;
+}
+
+.count-holder p:first-child {
+  margin-right: 10px;
 }

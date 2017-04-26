@@ -16,9 +16,21 @@ class TaskForm extends React.Component {
 
   update(type) {
     return (e) => {
-      let newState = merge({}, this.state);
-      newState.task[type] = e.target.value;
-      this.setState(newState);
+      if(type === "due") {
+        let newDue = e.target.value;
+        if(e.target.type === "time") {
+          newDue = new Date(this.state.task.due);
+          newDue.setHours(e.target.valueAsDate.getHours());
+          newDue.setMinutes(e.target.valueAsDate.getMinutes());
+        }
+        let newState = merge({}, this.state);
+        newState.task[type] = newDue;
+        this.setState(newState);
+      } else {
+        let newState = merge({}, this.state);
+        newState.task[type] = e.target.value;
+        this.setState(newState);
+      }
     };
   }
 
@@ -63,26 +75,38 @@ class TaskForm extends React.Component {
 
   render() {
     let titleErrors = "";
+    let dueErrors = "";
+
     if(this.props.errors) {
       if(this.props.errors.title){
         titleErrors = <p id="title-errors">{`Title ${this.props.errors.title}`}</p>;
       }
+
+      if(this.props.errors.due) {
+        dueErrors = <p id="title-errors">{`Due date ${this.props.errors.due}`}</p>;
+      }
     }
 
     let dueInput = "";
+    let dateVal = "";
     if(!this.state.dateHidden){
       dueInput = (
         <label> Due:
           <input type="date"
             className="task-date-input"
-            value={ this.state.task.due }
+            value={ new Date(this.state.task.due).toISOString().substring(0, 10) }
             onChange={ this.update("due") } />
+
+            <input type="time"
+              onChange={ this.update("due") }/>
         </label>
       );
     }
+
     return (
       <div className="new-task-form">
           { titleErrors }
+          { dueErrors }
           <form onSubmit={ this.handleSubmit }>
 
             <input type="text"

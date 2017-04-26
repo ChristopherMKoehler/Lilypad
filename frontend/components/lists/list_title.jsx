@@ -29,8 +29,15 @@ class ListTitle extends React.Component {
     return (
       <div className="list-show-container">
         <h1>{ title || "All Tasks" }</h1>
-        <p>{`Total Tasks: ${ totalTasksCount }`}</p>
-        <p>{`completed Tasks: ${ completedTasksCount || 0 }`}</p>
+        <div className="count-holder">
+          <p>{ totalTasksCount }</p>
+          <p>tasks</p>
+        </div>
+
+        <div className="count-holder">
+          <p>{ completedTasksCount || 0 }</p>
+          <p>completed</p>
+        </div>
       </div>
     );
   }
