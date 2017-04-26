@@ -47,7 +47,7 @@ class ListForm extends React.Component {
 
             <label> Due:
               <input type="date"
-                value={ this.state.due }
+                value={ new Date(this.state.due).toISOString().substring(0,10) }
                 onChange={ this.update("due") } />
             </label>
 
