@@ -26,6 +26,10 @@ class TaskForm extends React.Component {
     let newState = merge({}, this.defaultState);
     newState.task.list_id = newProps.params.id;
     this.setState(newState);
+
+    if(this.props.params.id != newProps.params.id) {
+      this.props.clearErrors();
+    }
   }
 
   componentDidMount() {
@@ -34,9 +38,6 @@ class TaskForm extends React.Component {
     this.setState(newState);
   }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
 
   handleSubmit(e) {
     if(this.props.params.id === "all_tasks") {
@@ -57,6 +58,7 @@ class TaskForm extends React.Component {
 
   handleClickOutside() {
     this.setState(this.defaultState);
+    this.props.clearErrors();
   }
 
   render() {

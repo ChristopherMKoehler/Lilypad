@@ -10,7 +10,7 @@
   border-bottom: 2px solid black;
   height: 75px;
   width: 100%;
-  min-width: 1300px;
+  min-width: 1889px;
 }
 
 p {
@@ -341,7 +341,7 @@ i:hover {
 .task-index {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  min-width: 500px;
   justify-content: flex-start;
   margin-left: 100px;
   margin-top: 10px;
@@ -375,6 +375,18 @@ i:hover {
   margin-left: 150px;
   padding: 10px;
   border: 1px solid;
+  animation-name: slidein;
+  animation-duration: 0.5s;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+  }
+
+  to {
+    position: relative;
+  }
 }
 
 .tasks-body {

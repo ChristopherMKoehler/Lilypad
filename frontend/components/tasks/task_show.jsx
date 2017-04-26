@@ -63,7 +63,9 @@ class TaskShow extends React.Component {
     this.setState(newState);
     this.props.updateTask(newState.task).then(
       () => {
-        this.props.removeTask(this.props.task);
+        if(!(this.props.params.id === "all_tasks")){
+          this.props.removeTask(this.props.task);
+        }
         this.props.router.push(`home/lists/${this.props.params.id}`);
       }
     );

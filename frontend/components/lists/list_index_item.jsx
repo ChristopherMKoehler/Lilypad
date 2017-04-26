@@ -25,6 +25,7 @@ class ListIndexItem extends React.Component{
 
   removeList(e) {
     this.props.deleteList(this.props.list.id);
+    this.props.router.push("home/lists/all_tasks");
   }
 
   toggleActionModal(e) {
