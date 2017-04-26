@@ -10,22 +10,15 @@ User.destroy_all
 List.destroy_all
 Task.destroy_all
 
-guest = User.new({ username: "Guest", password: "password", email: "test@example.com"})
-guest.save!
+guest = User.create!({ username: "Guest", password: "password", email: "test@example.com"})
 
 author_id = guest.id
 
 
 groceries = List.create!({ title: "Buy Groceries", due: Date.new , author_id: author_id})
-groceries.save!
 list_id = groceries.id
 
-t1 = Task.create!({ title: "Buy Milk", due: Date.new, completed: false, list_id: list_id, author_id: author_id})
-t2 = Task.create!({ title: "Buy Bread", due: Date.new, completed: false, list_id: list_id, author_id: author_id})
-t3 = Task.create!({ title: "Sign up for membership", due: Date.new, completed: false, list_id: list_id, author_id: author_id})
-t4 = Task.create!({ title: "Get cash from ATM", due: Date.new, completed: false, list_id: list_id, author_id: author_id})
-
-t1.save!
-t2.save!
-t3.save!
-t4.save!
+t1 = Task.create!({ title: "Buy Milk", due: DateTime.new(2018,2,3,4,5,6), completed: false, list_id: list_id, author_id: author_id})
+t2 = Task.create!({ title: "Buy Bread", due: DateTime.new(2018,2,3,4,5,6), completed: false, list_id: list_id, author_id: author_id})
+t3 = Task.create!({ title: "Sign up for membership", due: DateTime.new(2018,2,3,4,5,6), completed: false, list_id: list_id, author_id: author_id})
+t4 = Task.create!({ title: "Get cash from ATM", due: DateTime.new(2018,2,3,4,5,6), completed: false, list_id: list_id, author_id: author_id})

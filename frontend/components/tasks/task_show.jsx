@@ -92,9 +92,9 @@ class TaskShow extends React.Component {
     let formattedDate = "";
     if(this.state.task.due){
       let taskDate = new Date(this.state.task.due);
-      formattedDate = <p>{ taskDate.toString() }</p>;
+      formattedDate = <p>{ taskDate.toLocaleString() }</p>;
     }
-    
+
     return (
       <div className="task-show">
         <form className="task-form" onSubmit={ this.handleSubmit }>
