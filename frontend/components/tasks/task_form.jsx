@@ -6,7 +6,7 @@ import enhanceWithClickOutside from 'react-click-outside';
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
-    this.defaultState = { dateHidden: true, task: { list_id: this.props.params.id, title: "", completed: false, due: new Date() } };
+    this.defaultState = { dateHidden: true, task: { list_id: this.props.params.id, title: "", estimate_time: 0, completed: false, due: new Date() } };
     this.state = merge({}, this.defaultState);
 
     this.update = this.update.bind(this);
@@ -91,15 +91,24 @@ class TaskForm extends React.Component {
     let dateVal = "";
     if(!this.state.dateHidden){
       dueInput = (
-        <label> Due:
-          <input type="date"
-            className="task-date-input"
-            value={ new Date(this.state.task.due).toISOString().substring(0, 10) }
-            onChange={ this.update("due") } />
+        <div className="hidden-input">
+          <label> Due:
+            <input type="date"
+              className="task-date-input"
+              value={ new Date(this.state.task.due).toISOString().substring(0, 10) }
+              onChange={ this.update("due") } />
 
-            <input type="time"
-              onChange={ this.update("due") }/>
-        </label>
+              <input type="time"
+                onChange={ this.update("due") }/>
+          </label>
+          <br/>
+          <div className="estimate-time-input">
+            <p id="estimate">{ "Estimated Time To Complete:  "}</p>
+            <input type="number" value={ this.state.task.estimate_time }
+            onChange={ this.update("estimate_time")} />
+            <p>{" mins"}</p>
+          </div>
+        </div>
       );
     }
 

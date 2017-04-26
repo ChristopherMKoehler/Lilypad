@@ -10,7 +10,7 @@
   border-bottom: 2px solid black;
   height: 75px;
   width: 100%;
-  min-width: 1600px;
+  min-width: 1519px;
   max-width: 100%;
 
 }
@@ -168,7 +168,7 @@ h1 {
   flex-direction: column;
   height: 100%;
   width: auto;
-  min-width: 300px;
+  min-width: 250px;
   min-height: 100%;
   background: #2f8c4b;
 }
@@ -373,7 +373,7 @@ i:hover {
   margin-top: 50px;
   margin-right: 300px;
   flex-direction: column;
-  height: 200px;
+  height: 300px;
   width: 500px;
   margin-left: 150px;
   padding: 10px;
@@ -396,6 +396,7 @@ i:hover {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  min-width: 1280px
 }
 
 .task-title-display {
@@ -468,4 +469,45 @@ i:hover {
 
 .count-holder p:first-child {
   margin-right: 10px;
+}
+
+.estimate-time-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hidden-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#estimate {
+  margin-right: 10px;
+}
+
+.estimate-show {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-show-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list-show-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.counts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

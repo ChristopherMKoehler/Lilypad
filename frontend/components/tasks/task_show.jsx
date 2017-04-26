@@ -116,6 +116,11 @@ class TaskShow extends React.Component {
             { listOptions }
           </select>
 
+          <div className='estimate-show'>
+            <p>Estimate Time to Complete</p>
+            <p>{ `${this.props.task.estimate_time} mins` }</p>
+          </div>
+
         <button className="task-button" onClick={ this.handleDelete }>Delete this task</button>
       </div>
     );

@@ -7,19 +7,11 @@ class ListTitle extends React.Component {
   }
 
   getEstimateCompleteTime(allTasks) {
-
-    let millisecondsEstimate = allTasks.reduce((accum, task) => (
-      accum - new Date(task.due).getUTCMilliseconds()
-    ), Date.now());
-
-    let totalSeconds = millisecondsEstimate / 1000;
-    let hours = totalSeconds / 3600;
-    totalSeconds = totalSeconds % 3600;
-    let minutes = totalSeconds / 60;
-    totalSeconds = totalSeconds % 60;
-    let seconds = totalSeconds;
-
-    return `Estimated time until completion: ${~~hours} hrs, ${~~minutes} mins, ${~~seconds} secs`;
+    if(allTasks.length === 0){
+      return "";
+    }
+    let timeInMinutes = allTasks.reduce((accum, task) => accum + task.estimate_time, 0);
+    return `Estimate Time to Complete: ${timeInMinutes} minutes`;
   }
 
   render() {
@@ -47,18 +39,24 @@ class ListTitle extends React.Component {
 
     return (
       <div className="list-show-container">
-        <h1>{ title || "All Tasks" }</h1>
-        <div className="count-holder">
-          <p>{ totalTasksCount }</p>
-          <p>tasks</p>
+        <div className="list-show-top">
+          <h1>{ title || "All Tasks" }</h1>
+          <div className="counts">
+            <div className="count-holder">
+              <p>{ totalTasksCount }</p>
+              <p>tasks</p>
+            </div>
+
+            <div className="count-holder">
+              <p>{ completedTasksCount || 0 }</p>
+              <p>completed</p>
+          </div>
         </div>
 
-        <div className="count-holder">
-          <p>{ completedTasksCount || 0 }</p>
-          <p>completed</p>
         </div>
-
-        <p>{ completionEstimate }</p>
+        <div>
+          <p>{ completionEstimate }</p>
+        </div>
       </div>
     );
   }
