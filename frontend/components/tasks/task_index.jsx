@@ -1,6 +1,7 @@
 import React from 'react';
 import TaskIndexItem from './task_index_item';
 import TaskFormContainer from './task_form_container';
+import ListTitleContainer from '../lists/list_title_container';
 
 class TaskIndex extends React.Component {
   constructor(props){
@@ -35,6 +36,7 @@ class TaskIndex extends React.Component {
     return (
       <div className="tasks-body">
         <div className="task-index">
+          <ListTitleContainer listId={ this.props.params.id } tasks={ this.props.tasks }/>
           <TaskFormContainer />
           <ul className="task-list">
             { tasks }
