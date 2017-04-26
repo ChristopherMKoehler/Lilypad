@@ -424,6 +424,10 @@ i:hover {
   height: 40px;
 }
 
+.list-select:hover {
+  cursor: pointer;
+}
+
 .task-form {
   display: flex;
   align-items: flex-end;
