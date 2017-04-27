@@ -52,6 +52,7 @@ class TaskForm extends React.Component {
 
 
   handleSubmit(e) {
+    e.preventDefault();
     if(this.props.params.id === "all_tasks") {
       let newState = merge({}, this.defaultState);
       newState.task.list_id = 0;
@@ -73,13 +74,10 @@ class TaskForm extends React.Component {
   }
 
   handleClickOutside(e) {
-    e.preventDefault();
     let newState = merge({}, this.state);
     this.props.clearErrors();
     newState.dateHidden = true;
     this.setState(newState);
-
-
   }
 
   render() {
