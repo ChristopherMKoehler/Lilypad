@@ -22,14 +22,16 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={ this.dispatchToSearchResults } >
+        <form className="search-form" onSubmit={ this.dispatchToSearchResults } >
           <i id="search-icon" className="fa fa-search" aria-hidden="true"></i>
-          <input type="text" onChange={ this.updateSearchParams } placeholder="Search Tasks"/>
+          <input type="text"
+            className="search-field"
+            onChange={ this.updateSearchParams }
+            placeholder="Search Tasks"/>
         </form>
       </div>
     );
   }
 }
-// <input type="submit"  />
 
 export default withRouter(SearchBar);

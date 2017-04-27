@@ -4,7 +4,6 @@
   align-items: center;
   background: #2f8c4b;
   border-bottom: 2px solid black;
-  height: 75px;
   width: 100%;
   min-width: 1230px;
   max-width: 100%;
@@ -134,7 +133,7 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   background: #2f8c4b;
 }
 
@@ -241,6 +240,7 @@ h1 {
 
 .list-action-option:hover {
   background: #7fdfff;
+  cursor: pointer;
 }
 
 .welcome-logout {
@@ -464,13 +464,13 @@ i:hover {
   display: flex;
   background-color: #aaa;
   padding: 5px;
-  border-radius: 15%;
+  border-radius: 15px;
   justify-content: space-around;
   margin-right: 5px;
 }
 
 .count-holder p:first-child {
-  margin-right: 10px;
+  margin-right: 7px;
 }
 
 .estimate-time-input {
@@ -516,4 +516,29 @@ i:hover {
 
 #search-icon {
   margin-right: 5px;
+}
+
+.search-field {
+  font-family: verdana;
+  width: 150px;
+  height: 18px;
+  margin-left: 5px;
+  border: none;
+  background: #25c486;
+  font-size: 15px;
+}
+
+.search-field:focus {
+  outline: none;
+}
+
+.search-field::placeholder {
+  color: white;
+}
+
+.search-form {
+  background: #25c486;
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 9px;
 }
