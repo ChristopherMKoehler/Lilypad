@@ -27,9 +27,14 @@ class ListForm extends React.Component {
   render() {
     let title = this.props.formType === "edit" ? "Edit this list!" : "Add a list!";
     let titleErrors = "";
+    let dueErrors = "";
     if(this.props.errors) {
       if(this.props.errors.title){
         titleErrors = <p id="title-errors">{`Title ${this.props.errors.title}`}</p>;
+      }
+
+      if(this.props.errors.due) {
+        dueErrors = <p id="title-errors">{`Due date ${this.props.errors.due}`}</p>;
       }
     }
     return (
@@ -38,6 +43,7 @@ class ListForm extends React.Component {
           <h1>{ title }</h1>
 
           { titleErrors }
+          { dueErrors }
           <form onSubmit={ this.handleSubmit }>
 
             <input type="text"

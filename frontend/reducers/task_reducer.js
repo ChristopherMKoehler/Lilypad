@@ -1,4 +1,4 @@
-import { RECEIVE_TASKS, RECEIVE_TASK, REMOVE_TASK, RECEIVE_ERRORS } from '../actions/task_actions';
+import { RECEIVE_TASKS, RECEIVE_TASK, REMOVE_TASK, RECEIVE_TASK_ERRORS } from '../actions/task_actions';
 import merge from 'lodash/merge';
 
 
@@ -13,7 +13,7 @@ const taskReducer = (state = { errors: {} }, action) => {
       const newState = merge({}, state);
       delete newState[action.task.id];
       return newState;
-    case RECEIVE_ERRORS:
+    case RECEIVE_TASK_ERRORS:
       return Object.assign({}, state, { errors: action.errors });
     default:
       return state;
