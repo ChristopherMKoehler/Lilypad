@@ -10,7 +10,7 @@ class ListTitle extends React.Component {
     if(allTasks.length === 0){
       return "";
     }
-    let timeInMinutes = allTasks.reduce((accum, task) => accum + task.estimate_time, 0);
+    let timeInMinutes = allTasks.filter((task) => !task.completed).reduce((accum, task) => accum + task.estimate_time, 0);
     return `Estimate Time to Complete: ${timeInMinutes} minutes`;
   }
 
@@ -19,7 +19,7 @@ class ListTitle extends React.Component {
     if(this.props.list) {
       title = this.props.list.title;
     } else if(this.props.router.location.pathname.indexOf("search") >= 0) {
-      title = "Search Results"
+      title = "Search Results";
     }
 
 
