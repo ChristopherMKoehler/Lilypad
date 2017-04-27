@@ -18,6 +18,8 @@ class ListTitle extends React.Component {
     let title = null;
     if(this.props.list) {
       title = this.props.list.title;
+    } else if(this.props.router.location.pathname.indexOf("search") >= 0) {
+      title = "Search Results"
     }
 
 
