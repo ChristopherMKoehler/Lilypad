@@ -252,7 +252,7 @@ h1 {
 .welcome-logout h1 {
   margin-right: 10px;
   color: white;
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .list-list-el {
@@ -334,6 +334,8 @@ i:hover {
   padding: 5px;
   word-wrap: break-word;
   border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
 }
 
 .task-list:hover {
@@ -350,6 +352,9 @@ i:hover {
 }
 
 .task-checkbox {
+  width: 10px;
+  height: 10px;
+  background: white;
   margin-right: 10px;
 }
 
@@ -374,6 +379,7 @@ i:hover {
   height: 300px;
   width: 500px;
   padding: 10px;
+  border-radius: 10px;
   margin-left: 10px;
   border: 1px solid;
   animation-name: slidein;
