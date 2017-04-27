@@ -286,13 +286,13 @@ h1 {
 
 .list-title-container:hover {
   cursor: pointer;
-  background: #42f47d;
+  background: #25c486;
   color: white;
 }
 
 i:hover {
   cursor: pointer;
-  color: #42f46b;
+  color: #25c486;
 }
 
 #title-errors {
@@ -338,6 +338,10 @@ i:hover {
   align-items: center;
 }
 
+.task-list li:hover {
+  background: lightgray;
+}
+
 .task-list:hover {
   cursor: pointer;
 }
@@ -368,7 +372,7 @@ i:hover {
 }
 
 .all-tasks-link:hover {
-  background: #42f47d;
+  background: #25c486;
   color: white;
 }
 
