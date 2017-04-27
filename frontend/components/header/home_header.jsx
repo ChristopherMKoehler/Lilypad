@@ -1,4 +1,6 @@
 import React from 'react';
+import SearchBarContainer from '../search/search_bar_container';
+
 import { withRouter } from 'react-router';
 
 class HomeHeader extends React.Component {
@@ -26,6 +28,7 @@ class HomeHeader extends React.Component {
         </div>
 
         <div className="welcome-logout">
+          <SearchBarContainer />
           <h1>{ `Welcome ${ username }!` }</h1>
           <button className="redirect-button"
             onClick={ this.handleLogout }>Sign Out</button>

@@ -31,6 +31,9 @@ const Root = ({ store }) => {
             <Route path="lists/:id" onEnter={ _ensureLoggedIn } component={ TaskIndexContainer }>
               <Route path="tasks/:taskId" onEnter={ _ensureLoggedIn } component={ TaskShowContainer }/>
             </Route>
+            <Route path="search" onEnter={ _ensureLoggedIn } component={ TaskIndexContainer }>
+              <Route path="tasks/:taskId" onEnter={ _ensureLoggedIn } component={ TaskShowContainer }/>
+            </Route>
           </Route>
         </Route>
       </Router>

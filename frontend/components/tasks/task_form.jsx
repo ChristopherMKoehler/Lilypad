@@ -53,12 +53,11 @@ class TaskForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if(this.props.params.id === "all_tasks") {
-      let newState = merge({}, this.defaultState);
-      newState.task.list_id = 0;
-      this.setState(newState);
+    let newState = merge({}, this.state.task);
+    if(this.props.params.id === "all_tasks" || this.props.router.location.pathname.indexOf("search") >= 0) {
+      newState.list_id = 0;
     }
-    this.props.createTask(this.state.task).then(
+    this.props.createTask(newState).then(
       () => {
         this.setState(this.defaultState);
         this.props.clearErrors();

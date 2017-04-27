@@ -10,9 +10,13 @@ const TaskIndexItem = (props) => {
   };
 
   const redirectToShow = (e) => {
-    props.router.push(`home/lists/${props.params.id}/tasks/${props.task.id}`);
+    if(props.router.location.pathname.indexOf("search") >= 0){
+      props.router.push(`home/search/tasks/${props.task.id}`);
+    } else {
+      props.router.push(`home/lists/${props.params.id}/tasks/${props.task.id}`);
+    }
   };
-  
+
   return (
     <li onClick={ redirectToShow }>
       <input type="checkbox"

@@ -2,9 +2,21 @@ import { connect } from 'react-redux';
 import { fetchTasksByList, updateTask, fetchAllTasks } from '../../actions/task_actions';
 import TaskIndex from './task_index';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  let tasks = state.tasks;
+
+  if(ownProps.location.pathname.indexOf("search") >= 0) {
+    let allTasks = Object.keys(state.tasks).filter((taskId) => (
+      taskId !== "errors"
+    )).map((taskId) => state.tasks[taskId]);
+
+    tasks = allTasks.filter((task) => (
+      task.title.toLowerCase().indexOf(state.searchParams.searchParams.toLowerCase()) >= 0
+    ));
+  }
   return {
-    tasks: state.tasks
+    tasks,
+    searchParams: state.searchParams.searchParams
   };
 };
 

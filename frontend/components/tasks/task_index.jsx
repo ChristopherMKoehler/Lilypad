@@ -9,12 +9,16 @@ class TaskIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-     if(newProps.params.id != this.props.params.id){
-       if(newProps.params.id === "all_tasks") {
-         this.props.fetchAllTasks();
-       } else {
-         this.props.fetchTasksByList(newProps.params.id);
-       }
+    if(newProps.location.pathname.indexOf("search") >= 0){
+
+    } else {
+      if(newProps.params.id != this.props.params.id){
+        if(newProps.params.id === "all_tasks") {
+          this.props.fetchAllTasks();
+        } else {
+          this.props.fetchTasksByList(newProps.params.id);
+        }
+      }
     }
   }
 
@@ -42,7 +46,7 @@ class TaskIndex extends React.Component {
             { tasks }
           </ul>
         </div>
-        { this.props.children }   
+        { this.props.children }
       </div>
     );
   }
