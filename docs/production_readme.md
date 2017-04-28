@@ -15,7 +15,7 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
 
   Lists are rendered only in the navigation bar which appears at the side of the page. The real information lies in the showing of the tasks for each list, which is handled in `TaskIndex`. Above `TaskIndex` is the `ListTitle`, which acts a summarized show page for the currently selected list, including the tile, the estimated time, and how many tasks have been completed. In this component, users can create new tasks with an input field that, when clicked, produces an entire form to collect all of the information for the new task. This helps keep the task_index clean.
 
-  One can see a task merely by clicking on the list element which is labeled with the name of the task. This causes an animated window to come in from the left. The window shows all of the task information, including title, due date/time, and estimated time to completed the task. In this window, the user can edit the title by clicking on it and delete it with the button at the bottom.
+  One can see a task merely by clicking on the list element which is labeled with the name of the task. This causes an animated window to come in from the right. The window shows all of the task information, including title, due date/time, and estimated time to completed the task. In this window, the user can edit the title by clicking on it and delete it with the button at the bottom.
 
 
 ![image of the list and task index](wireframes/home-nav.jpg)
