@@ -20,8 +20,10 @@ class TaskForm extends React.Component {
         let newDue = e.target.value;
         if(e.target.type === "time") {
           newDue = new Date(this.state.task.due);
-          newDue.setHours(e.target.valueAsDate.getHours());
-          newDue.setMinutes(e.target.valueAsDate.getMinutes());
+          let time = e.target.value.split(":");
+          newDue.setHours(parseInt(time[0]));
+          newDue.setMinutes(parseInt(time[1]));
+          newDue.setSeconds(0);
         }
         let newState = merge({}, this.state);
         newState.task[type] = newDue;

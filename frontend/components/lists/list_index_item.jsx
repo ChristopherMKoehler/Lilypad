@@ -16,6 +16,7 @@ class ListIndexItem extends React.Component{
   }
 
   handleShow(e) {
+    this.props.clearSearchParams();
     this.props.router.push(`/home/lists/${this.props.list.id}`);
   }
 

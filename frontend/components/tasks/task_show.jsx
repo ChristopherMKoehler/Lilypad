@@ -92,7 +92,8 @@ class TaskShow extends React.Component {
     let formattedDate = "";
     if(this.state.task.due){
       let taskDate = new Date(this.state.task.due);
-      formattedDate = <p>{ taskDate.toLocaleString() }</p>;
+      taskDate = taskDate.toLocaleString();
+      formattedDate = <p>{ taskDate.slice(0, -6) + " " + taskDate.slice(-2) }</p>;
     }
 
     return (
