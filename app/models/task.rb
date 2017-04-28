@@ -14,7 +14,7 @@ class Task < ActiveRecord::Base
     foreign_key: :author_id
 
     def date_not_before_now
-     if due.present? && due > Date.yesterday
+     if due.present? && due < Date.today
        errors.add(:due, "can't be in the past")
      end
    end
