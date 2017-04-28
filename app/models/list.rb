@@ -16,7 +16,7 @@ class List < ActiveRecord::Base
     dependent: :delete_all
 
   def date_not_before_now
-    if due.present? && due > Date.yesterday
+    if due.present? && due < Date.today
      errors.add(:due, "can't be in the past")
     end
   end
