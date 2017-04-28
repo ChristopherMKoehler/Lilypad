@@ -112,7 +112,7 @@ class TaskForm extends React.Component {
           <br/>
           <div className="estimate-time-input">
             <p id="estimate">{ "Estimated Time:"}</p>
-            <input type="number" value={ this.state.task.estimate_time }
+            <input type="number"  min="0" value={ this.state.task.estimate_time }
             onChange={ this.update("estimate_time")} />
           <p id="mins">mins</p>
           </div>
