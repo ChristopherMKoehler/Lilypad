@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #2f8c4b;
+  background: #1d7236;
   border-bottom: 2px solid white;
   width: 100%;
   min-width: 1230px;
@@ -19,20 +19,21 @@ label {
 }
 
 .header .redirect-button {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
   height: 34px;
   text-align: center;
   width: auto;
-  min-width: 100px;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
+  min-width: 75px;
+  border-radius: 2px;
+  font-size: 15px;
   margin-right: 5px;
+  border: none;
+  background: #aaa;
 }
 
 .header .redirect-button:hover {
   cursor: pointer;
-  background: #25c486;
+  background: #c4c2c2;
 }
 
 .header p {
@@ -101,21 +102,18 @@ h1 {
 
 .auth-form .submit {
   margin: 10px;
-  width: 50px;
-  font-family: 'Nothing You Could Do', cursive;
-  height: 34px;
+  font-family: verdana;
   text-align: center;
   width: auto;
   min-width: 75px;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
+  border-radius: 2px;
+  font-size: 18px;
 
 }
 
 .auth-form .submit:hover {
   cursor: pointer;
-  background: #25c486;
+  background: #c4c2c2;
 }
 
 .form-container {
@@ -138,7 +136,7 @@ h1 {
   flex-direction: column;
   width: 100%;
   max-width: 250px;
-  background: #2f8c4b;
+  background: #1d7236;
 }
 
 .list-nav span li {
@@ -178,7 +176,7 @@ li {
   width: auto;
   min-width: 250px;
   min-height: 100%;
-  background: #2f8c4b;
+  background: #1d7236;
 }
 
 .home-content {
@@ -274,7 +272,8 @@ li {
 .welcome-logout h1 {
   margin-right: 10px;
   color: white;
-  font-size: 28px;
+  font-size: 22px;
+  font-family: verdana;
 }
 
 .list-list-el {
@@ -305,6 +304,7 @@ li {
 .list-title-container {
   flex: 1;
   color: white;
+  margin-bottom: 3px;
 }
 
 .list-title-container:hover {
@@ -478,23 +478,24 @@ i:hover {
 }
 
 .submit, .task-button {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: verdana;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 2px;
+  background: #aaa;
   font-size: 16px;
+  border: none;
   min-width: 40%;
-  font-weight: bold;
 }
 
 .submit:hover {
   cursor: pointer;
-  background: #25c486;
+  background: #c4c2c2;
 }
 
 
 .task-button:hover {
   cursor: pointer;
-  background: #e45f5f;
+  background: #c4c2c2;
 }
 
 .list-show-container {
@@ -598,7 +599,7 @@ i:hover {
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  background: #2f8c4b;
+  background: #1d7236;
   height: 100%;
   width: 50%;
 }
