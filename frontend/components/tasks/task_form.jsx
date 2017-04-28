@@ -111,11 +111,12 @@ class TaskForm extends React.Component {
           </label>
           <br/>
           <div className="estimate-time-input">
-            <p id="estimate">{ "Estimated Time To Complete:  "}</p>
+            <p id="estimate">{ "Estimated Time:"}</p>
             <input type="number" value={ this.state.task.estimate_time }
             onChange={ this.update("estimate_time")} />
-            <p>{" mins"}</p>
+          <p id="mins">mins</p>
           </div>
+          <input type="submit" className="submit" value="Add Task"></input>
         </div>
       );
     }
@@ -135,7 +136,7 @@ class TaskForm extends React.Component {
 
             { dueInput }
 
-            <input type="submit" className="submit" value="Add New Task!"></input>
+
           </form>
         </div>
     );

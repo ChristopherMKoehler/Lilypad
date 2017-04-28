@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
-      .then(() => this.props.router.push('/home'));
+      .then(() => this.props.router.push('/home/lists/all_tasks'));
   }
 
   update(type) {
@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
   handleGuestLogIn(e) {
     e.preventDefault();
     this.props.processForm({ username: "Guest", password: "password" })
-      .then(() => this.props.router.push('/home'));
+      .then(() => this.props.router.push('/home/lists/all_tasks'));
   }
 
   render() {
@@ -90,32 +90,42 @@ class SessionForm extends React.Component {
 
     return (
       <Splash>
-        <div className="form-container">
-          <h1>{ formHeader }</h1>
+        <div className="frontpage-content">
+          <div className="description">
+            <div className="description-content">
+              <div className="motivational-frog-quote">
+                <h1>Don't be a fish; be a frog. Swim in the water and jump when you hit ground.</h1>
+                <p id="kim">-Kim Young-ha</p>
+              </div>
+            </div>
+          </div>
+          <div className="form-container">
+            <h1>{ formHeader }</h1>
 
-          <span>{ base }</span>
-          <form onSubmit={ this.handleSubmit } className="auth-form">
-            { emailFormInput }
-            { emailErrors }
+            <span>{ base }</span>
+            <form onSubmit={ this.handleSubmit } className="auth-form">
+              { emailFormInput }
+              { emailErrors }
 
-            <input className={ usernameClass }
-              type="text"
-              value={ this.state.username }
-              onChange={ this.update("username") }
-              placeholder="Username"/>
-            { usernameErrors }
+              <input className={ usernameClass }
+                type="text"
+                value={ this.state.username }
+                onChange={ this.update("username") }
+                placeholder="Username"/>
+              { usernameErrors }
 
-            <input className={ passwordClass }
-              type="password"
-              value={ this.state.password }
-              onChange={ this.update("password") }
-              placeholder="Password"/>
-            { passwordErrors }
+              <input className={ passwordClass }
+                type="password"
+                value={ this.state.password }
+                onChange={ this.update("password") }
+                placeholder="Password"/>
+              { passwordErrors }
 
 
-            <input className="submit" type="submit"></input>
-            { guestSignInButton }
-          </form>
+              <input className="submit" type="submit"></input>
+              { guestSignInButton }
+            </form>
+          </div>
         </div>
     </Splash>
     );

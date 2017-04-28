@@ -51,7 +51,7 @@ class ListTitle extends React.Component {
 
             <div className="count-holder">
               <p>{ completedTasksCount || 0 }</p>
-              <p>completed</p>
+              <p>done</p>
           </div>
         </div>
 

@@ -19,8 +19,8 @@ class ListActionModal extends React.Component {
   render() {
     return (
       <div className="list-action-modal">
-        <span className="list-action-option" onClick={ this.props.toggleModal }>Edit this List</span>
-        <span className="list-action-option" onClick={ this.props.removeList }>Delete This List</span>
+        <span className="list-action-option" onClick={ this.props.toggleModal }>Edit </span>
+        <span className="list-action-option" onClick={ this.props.removeList }>Delete </span>
       </div>
     );
   }

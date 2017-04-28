@@ -57,7 +57,7 @@ class ListForm extends React.Component {
                 onChange={ this.update("due") } />
             </label>
 
-            <input type="submit"/>
+            <input id="list-sub" type="submit"/>
           </form>
         </div>
       </div>

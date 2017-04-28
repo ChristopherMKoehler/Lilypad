@@ -3,16 +3,15 @@
   justify-content: space-between;
   align-items: center;
   background: #2f8c4b;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   width: 100%;
   min-width: 1230px;
   max-width: 100%;
-
+  color: white;
 }
 
 p {
   font-family: verdana;
-  margin: 10px 0 10px 0;
 }
 
 label {
@@ -27,12 +26,13 @@ label {
   min-width: 100px;
   border-radius: 10px;
   font-size: 20px;
+  font-weight: bold;
   margin-right: 5px;
 }
 
 .header .redirect-button:hover {
   cursor: pointer;
-  background: gray;
+  background: #25c486;
 }
 
 .header p {
@@ -109,12 +109,13 @@ h1 {
   min-width: 75px;
   border-radius: 10px;
   font-size: 20px;
+  font-weight: bold;
 
 }
 
 .auth-form .submit:hover {
   cursor: pointer;
-  background: gray;
+  background: #25c486;
 }
 
 .form-container {
@@ -123,6 +124,9 @@ h1 {
   align-items: center;
   justify-content: flex-start;
   margin-top: 40px;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
 }
 
 .alt-link {
@@ -137,11 +141,13 @@ h1 {
   background: #2f8c4b;
 }
 
-.list-nav span, li {
-  font-family: verdana;
+.list-nav span li {
+  color: white;
 }
 
-
+li {
+  font-family: verdana;
+}
 
 .list-nav .list-nav-head {
   display: flex;
@@ -167,6 +173,8 @@ h1 {
   display: flex;
   flex-direction: column;
   height: 100%;
+  font-family: verdana;
+  color: white;
   width: auto;
   min-width: 250px;
   min-height: 100%;
@@ -208,6 +216,14 @@ h1 {
   justify-content: space-between;
 }
 
+.modal-content h1 {
+  color: black;
+  margin: 0;
+}
+
+#list-sub {
+  display: flex;
+}
 .list-list {
   list-style-type: none;
   margin-top: 0;
@@ -236,6 +252,12 @@ h1 {
   top: 18px;
   left: 50px;
   border: 1px solid black;
+}
+
+.list-action-option {
+  color: black;
+  border-bottom: 1px solid;
+  padding: 3px;
 }
 
 .list-action-option:hover {
@@ -282,6 +304,7 @@ h1 {
 
 .list-title-container {
   flex: 1;
+  color: white;
 }
 
 .list-title-container:hover {
@@ -322,10 +345,18 @@ i:hover {
 
 .new-task-form .task-date-input {
   align-self: flex-end;
-  margin-bottom: 10px;
   font-family: verdana;
+  margin-right: 10px;
+  margin-left: 7px;
 }
 
+#mins {
+  margin-left: 3px;
+}
+.new-task-form label {
+  display: flex;
+  align-items: center;
+}
 .task-list {
   list-style: none;
 }
@@ -356,16 +387,17 @@ i:hover {
 }
 
 .task-checkbox {
-  width: 10px;
-  height: 10px;
-  background: white;
+  width: 20px;
+  height: 20px;
+  background: #25c486;
   margin-right: 10px;
 }
+
 
 .all-tasks-link {
   font-family: verdana;
   text-decoration: none;
-  color: black;
+  color: white;
   border-bottom: 1px solid black;
   padding: 4px;
   margin: 10px;
@@ -451,17 +483,18 @@ i:hover {
   border-radius: 10px;
   font-size: 16px;
   min-width: 40%;
+  font-weight: bold;
 }
 
 .submit:hover {
   cursor: pointer;
-  background: gray
+  background: #25c486;
 }
 
 
 .task-button:hover {
   cursor: pointer;
-  background: gray
+  background: #e45f5f;
 }
 
 .list-show-container {
@@ -472,11 +505,11 @@ i:hover {
 
 .count-holder {
   display: flex;
-  background-color: #aaa;
-  padding: 5px;
-  border-radius: 15px;
-  justify-content: space-around;
+  background-color: #25c486;
+  padding: 7px;
+  border-radius: 50%;
   margin-right: 5px;
+  color: white;
 }
 
 .count-holder p:first-child {
@@ -492,7 +525,8 @@ i:hover {
 .hidden-input {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 10px;
 }
 
 #estimate {
@@ -510,6 +544,10 @@ i:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.modal-content label {
+  color: black;
 }
 
 .list-show-container {
@@ -536,6 +574,7 @@ i:hover {
   border: none;
   background: #25c486;
   font-size: 15px;
+  color: white;
 }
 
 .search-field:focus {
@@ -551,4 +590,43 @@ i:hover {
   padding: 5px;
   border-radius: 10px;
   margin-right: 9px;
+  color: white;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #2f8c4b;
+  height: 100%;
+  width: 50%;
+}
+
+.frontpage-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 90vh;
+}
+
+.motivational-frog-quote {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 50%;
+  align-self: center;
+  margin: auto;
+}
+
+.description-content {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+#kim {
+  align-self: flex-end;
 }
