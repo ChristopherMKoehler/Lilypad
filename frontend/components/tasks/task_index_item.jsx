@@ -4,16 +4,19 @@ import { withRouter } from 'react-router';
 
 const TaskIndexItem = (props) => {
   const toggleCompleted = (e) => {
+    e.stopPropagation();
     let updatedTask = merge({}, props.task);
     updatedTask.completed = !updatedTask.completed;
     props.updateTask(updatedTask);
   };
 
   const redirectToShow = (e) => {
-    if(props.router.location.pathname.indexOf("search") >= 0){
-      props.router.push(`home/search/tasks/${props.task.id}`);
-    } else {
-      props.router.push(`home/lists/${props.params.id}/tasks/${props.task.id}`);
+    if(e.target.type !== "checkbox"){
+      if(props.router.location.pathname.indexOf("search") >= 0){
+        props.router.push(`home/search/tasks/${props.task.id}`);
+      } else {
+        props.router.push(`home/lists/${props.params.id}/tasks/${props.task.id}`);
+      }
     }
   };
 
