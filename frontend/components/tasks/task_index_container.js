@@ -10,9 +10,12 @@ const mapStateToProps = (state, ownProps) => {
       taskId !== "errors"
     )).map((taskId) => state.tasks[taskId]);
 
-    tasks = allTasks.filter((task) => (
-      task.title.toLowerCase().indexOf(state.searchParams.searchParams.toLowerCase()) >= 0
-    ));
+    if(state.searchParams.searchParams){
+      tasks = allTasks.filter((task) => (
+        task.title.toLowerCase().indexOf(state.searchParams.searchParams.toLowerCase()) >= 0
+      ));
+    }
+
   }
   return {
     tasks,
