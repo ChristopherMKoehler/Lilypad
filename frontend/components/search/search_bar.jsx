@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
   }
 
   dispatchToSearchResults(e) {
+    e.preventDefault();
     this.props.receiveSearchParams(this.state);
     this.props.router.push("/home/search");
   }
