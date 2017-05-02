@@ -6,9 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   let tasks = state.tasks;
 
   if(ownProps.location.pathname.indexOf("search") >= 0) {
-    let allTasks = Object.keys(state.tasks).filter((taskId) => (
-      taskId !== "errors"
-    )).map((taskId) => state.tasks[taskId]);
+    let allTasks = Object.keys(state.tasks).filter(taskId => taskId !== "errors").map(taskId => state.tasks[taskId]);
 
     if(state.searchParams.searchParams){
       tasks = allTasks.filter((task) => (
