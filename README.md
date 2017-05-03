@@ -18,7 +18,7 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
   One can see a task merely by clicking on the list element which is labeled with the name of the task. This causes an animated window to come in from the right. The window shows all of the task information, including title, due date/time, and estimated time to completed the task. In this window, the user can edit the title by clicking on it and delete it with the button at the bottom.
 
 
-![image of the list and task index](wireframes/home-nav.jpg)
+![image of the list and task index](./docs/wireframes/home-nav.jpg)
 
 
 ### Search
