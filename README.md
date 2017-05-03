@@ -29,4 +29,18 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
 
 ### Search
 
-In the header of the page, one can see a green search bar. If you were to type the name of a task in the bar and press return, the task index page will be replaced with the search results of looking for that task in the currently selected list. To look for a list in all of your tasks, simply implement the search while in the all tasks route provided. Keep in mind that the search is case insensitive.
+In the header of the page, one can see a green search bar. If you were to type the name of a task in the bar and press return, the task index page will be replaced with the search results of looking for that task in the currently selected list. This is done by filtering the state to include only tasks that include the state search parameters.
+
+```javascript
+  let tasks = state.tasks;
+  if(ownProps.location.pathname.indexOf("search") >= 0) {
+    let allTasks = Object.keys(state.tasks).filter(taskId => taskId !== "errors").map(taskId => state.tasks[taskId]);
+    if(state.searchParams){
+      tasks = allTasks.filter((task) => (
+        task.title.toLowerCase().indexOf(state.searchParams.searchParams.toLowerCase()) >= 0
+      ));
+    }
+  }
+```
+
+To look for a list in all of your tasks, simply implement the search while in the all tasks route provided. Keep in mind that the search is case insensitive.
