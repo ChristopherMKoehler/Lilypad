@@ -2,7 +2,7 @@
 
 [Lilypad live][heroku]
 
-[heroku]: https://lilypad-todo.herokuapp.com
+[heroku]: www.lilypadtodo.com
 
 Lilypad is a full-stack web application that takes cues from
 Remember the Milk. Its design allows users to hop from task to task with ease and keep track of what they accomplished. Using this site will allow users to increase their productivity by allowing them to not focus on remembering all of the tasks they need to get done.
