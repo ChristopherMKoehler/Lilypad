@@ -41,10 +41,12 @@ class TaskIndex extends React.Component {
       <div className="tasks-body">
         <div className="task-index">
           <ListTitleContainer listId={ this.props.params.id } tasks={ this.props.tasks }/>
-          <TaskFormContainer />
-          <ul className="task-list">
-            { tasks }
-          </ul>
+          <div className="task-side">
+            <TaskFormContainer />
+            <ul className="task-list">
+              { tasks }
+            </ul>
+          </div>
         </div>
         { this.props.children }
       </div>
