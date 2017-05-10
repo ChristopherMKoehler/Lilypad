@@ -31,7 +31,37 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
   end
   ```
 
-  Lists are rendered only in the navigation bar which appears at the side of the page. The real information lies in the showing of the tasks for each list, which is handled in `TaskIndex`. Above `TaskIndex` is the `ListTitle`, which acts a summarized show page for the currently selected list, including the tile, the estimated time, and how many tasks have been completed. In this component, users can create new tasks with an input field that, when clicked, produces an entire form to collect all of the information for the new task. This helps keep the task_index clean.
+  Lists are rendered only in the navigation bar which appears at the side of the page. You can see all of the tasks in a list, add a task to a list, or checkoff a task in a list by simply clicking the desired list. To create a list, press the plus sign icon at the top of the navigation bar. This will cause a pop up to come on to the page and ask for the name and title of the new list. The site will enforce the fact that you can't make lists that are due in the past, so be careful. Once the list is on the navigation bar, the user is given the options to edit the name or title of the list by clicking the cog icon seen beside each list title in the navigation bar. If you click delete, the entire list will be erased and so will all of the tasks that existed in that list. If you press edit, a popup similar to the add list popup will appear and allow you to edit that list's title and due date. The add and edit list modal are actually the same, repurposed component that looks like this.
+
+  ```html
+  <div className="modal-screen" onClick={ this.props.toggleModal }>
+    <div className="modal-content" onClick={ (e) => e.stopPropagation() }>
+      <h1>{ title }</h1>
+
+      { titleErrors }
+      { dueErrors }
+      <form onSubmit={ this.handleSubmit }>
+
+        <input type="text"
+          value={ this.state.title }
+          placeholder="Title"
+          onChange={ this.update("title") }/>
+
+        <label> Due:
+          <input type="date"
+            value={ new Date(this.state.due).toISOString().substring(0,10) }
+            onChange={ this.update("due") } />
+        </label>
+
+        <input id="list-sub" type="submit"/>
+      </form>
+    </div>
+  </div>
+  ```
+
+  The outer div has a click handler that closes the whole modal, making for an intuitive user experience. The inner modal has the form that you can actually input your list title and due date into.
+
+   The real information lies in the showing of the tasks for each list, which is handled in `TaskIndex`. Above `TaskIndex` is the `ListTitle`, which acts a summarized show page for the currently selected list, including the tile, the estimated time, and how many tasks have been completed. In this component, users can create new tasks with an input field that, when clicked, produces an entire form to collect all of the information for the new task. This helps keep the task_index clean.
 
   One can see a task merely by clicking on the list element which is labeled with the name of the task. This causes an animated window to come in from the right. This animation was implemented using CSS3. This element looks like the following.
 
