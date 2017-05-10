@@ -46,9 +46,10 @@ class TaskIndex extends React.Component {
             <ul className="task-list">
               { tasks }
             </ul>
+            { this.props.children }
           </div>
         </div>
-        { this.props.children }
+
       </div>
     );
   }
