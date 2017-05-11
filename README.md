@@ -87,3 +87,7 @@ In the header of the page, one can see a green search bar. If you were to type t
 ```
 
 To look for a list in all of your tasks, simply implement the search while in the all tasks route provided. Keep in mind that the search is case insensitive. This is incredibly useful for the quick look up of one of you known tasks to make sure you know when its due.
+
+### Future Updates
+
+In the future, the app will be able to handle sub-tasks, effectively making a task a list. This will allow for users to get more and more specific with what they are trying to accomplish. I also would like to add smart task adding to the site. With this feature, users would just need to add certain key words to the title input section for a task to change that property for the new task. For example, after typing the title, I may write "date =". This would cause a calendar dropdown to appear, but the user could just type out the date and it would automatically be converted to a date for the new task. This would make adding tasks much simpler and faster.
