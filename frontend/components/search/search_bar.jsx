@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
           <input type="text"
             className="search-field"
             onChange={ this.updateSearchParams }
-            placeholder="Search Tasks"/>
+            placeholder="Search Current List"/>
         </form>
       </div>
     );
