@@ -16,6 +16,7 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
   The database is responsible for keeping track of the lists and tasks associated with the current user. The table storing the data for the lists contains the columns `id`, `author_id`, `title`, `due`, and `completed`. The table for the tasks works very similarly to the lists table but they have a `list_id` and `author_id` in order to make it easier to fetch all tasks or just the tasks associated with a list. When logged in, the backend will filter the lists and tasks such that only the ones belonging to the current user are available.
 
   ```ruby
+  //app/controllers/api/lists_controller.rb
     @lists = current_user.lists
     if @lists
       render :index
@@ -25,6 +26,7 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
   Current user is accessible to the backend by means of setting the session token of the user attempting to log in to the session cookie on the window. With this piece of information, the current user can be fetched by means of a query for the user who has a session token equal to the one on the window.
 
   ```ruby
+  //app/controllers/application_controller.rb
   def current_user
     return nil unless session[:session_token]
     User.find_by(session_token: session[:session_token])
@@ -34,6 +36,7 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
   Lists are rendered only in the navigation bar which appears at the side of the page. You can see all of the tasks in a list, add a task to a list, or checkoff a task in a list by simply clicking the desired list. To create a list, press the plus sign icon at the top of the navigation bar. This will cause a pop up to come on to the page and ask for the name and title of the new list. The site will enforce the fact that you can't make lists that are due in the past, so be careful. Once the list is on the navigation bar, the user is given the options to edit the name or title of the list by clicking the cog icon seen beside each list title in the navigation bar. If you click delete, the entire list will be erased and so will all of the tasks that existed in that list. If you press edit, a popup similar to the add list popup will appear and allow you to edit that list's title and due date. The add and edit list modal are actually the same, repurposed component that looks like this.
 
   ```html
+  <!-- frontend/components/lists/list_form.jsx -->
   <div className="modal-screen" onClick={ this.props.toggleModal }>
     <div className="modal-content" onClick={ (e) => e.stopPropagation() }>
       <h1>{ title }</h1>
@@ -75,9 +78,7 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
 In the header of the page, one can see a green search bar. If you were to type the name of a task in the bar and press return, the task index page will be replaced with the search results of looking for that task in the currently selected list. This is done by filtering the state to include only tasks that include the state search parameters.
 
 ```javascript
-  let tasks = state.tasks;
-  if(ownProps.location.pathname.indexOf("search") >= 0) {
-    let allTasks = Object.keys(state.tasks).filter(taskId => taskId !== "errors").map(taskId => state.tasks[taskId]);
+  //frontend/components/tasks/task_index_container.js
     if(state.searchParams){
       tasks = allTasks.filter((task) => (
         task.title.toLowerCase().indexOf(state.searchParams.searchParams.toLowerCase()) >= 0
