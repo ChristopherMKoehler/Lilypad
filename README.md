@@ -35,7 +35,7 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
 
   Lists are rendered only in the navigation bar which appears at the side of the page. You can see all of the tasks in a list, add a task to a list, or checkoff a task in a list by simply clicking the desired list. To create a list, press the plus sign icon at the top of the navigation bar. This will cause a pop up to come on to the page and ask for the name and title of the new list. The site will enforce the fact that you can't make lists that are due in the past, so be careful. Once the list is on the navigation bar, the user is given the options to edit the name or title of the list by clicking the cog icon seen beside each list title in the navigation bar. A challenge that I overcame with this is figuring out how to have this popup have modal like properties (click outside closes it), but doesn't override click handlers on all other elements. I solved this by incorporating a React component enhancer that allows for onClick handlers that close the menu to exist everywhere but still allows the onClick handler for the button you clicked to run after the menu closes.
 
-   Once in the modal, if you click delete, the entire list will be erased and so will all of the tasks that existed in that list. If you press edit, a popup similar to the add list popup will appear and allow you to edit that list's title and due date. The add and edit list modal are actually the same, repurposed component that looks like this.
+   Once in the modal, if you click delete, the entire list will be erased and so will all of the tasks that existed in that list. This is done via removing the list from the slice of state after an AJAX request is made to the back end to remove that list from the table. It will only allow you to remove a list if you are logged as the user who owns the list. If you press edit, a popup similar to the add list popup will appear and allow you to edit that list's title and due date. The add and edit list modal are actually the same, repurposed component that looks like this.
 
   ```html
   <!-- frontend/components/lists/list_form.jsx -->
@@ -64,7 +64,7 @@ Remember the Milk. Its design allows users to hop from task to task with ease an
   </div>
   ```
 
-  The outer div has a click handler that closes the whole modal, making for an intuitive user experience. The inner modal has the form that you can actually input your list title and due date into.
+  The outer div has a click handler that closes the whole modal, making for an intuitive user experience. The inner modal has the form that you can actually input your list title and due date into. The component know, via its props, whether its adding a list or editing a list. With this information, it makes the correct request to the back end (POST for add and PATCH for edit) to achieve its purpose.
 
    The real information lies in the showing of the tasks for each list, which is handled in `TaskIndex`. Above `TaskIndex` is the `ListTitle`, which acts a summarized show page for the currently selected list, including the tile, the estimated time, and how many tasks have been completed. In this component, users can create new tasks with an input field that, when clicked, produces an entire form to collect all of the information for the new task. This helps keep the task_index clean.
 
